@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Education - Pakistan</title>
+  <link rel="icon" href="Favicon 2.png">
+  <link href="https://fonts.googleapis.com/css?family=Abril+Fatface" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+
+  <style>
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: "Abril Fatface", serif;
+      font-size: 20px;
+      margin: 0;
+      text-align: justify;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      background: #fff;
+      color: #111;
+    }
+    main { flex: 1; padding: 20px; max-width: 1100px; margin: 0 auto; }
+
+    /* 🌟 Intro Overlay */
+    .intro-overlay {
+      position: fixed; inset: 0; z-index: 2000;
+      background: url('Pics/State_emblem_of_Pakistan.svg.png') center/contain no-repeat #004d00;
+      display: flex; align-items: center; justify-content: center;
+      color: white; text-shadow: 2px 2px 8px black;
+      font-size: clamp(42px, 9vw, 110px);
+      animation: introOut 1.8s ease forwards;
+    }
+    @keyframes introOut {
+      0%   { opacity: 1; transform: scale(1);}
+      80%  { opacity: 1; transform: scale(1.05);}
+      100% { opacity: 0; transform: scale(1.08);}
+    }
+
+    /* 🔷 Navbar */
+    .navbar {
+      position: sticky; top: 0; z-index: 1000;
+      background: linear-gradient(90deg, #006400, #228B22);
+      display: flex; justify-content: center; align-items: center;
+      padding: 14px 10px;
+      box-shadow: 0 2px 10px rgba(0,0,0,.15);
+    }
+    .navbar a {
+      color: #fff; text-decoration: none; font-size: 20px;
+      margin: 0 18px; padding: 8px 6px; position: relative;
+      transition: color .25s ease;
+    }
+    .navbar a::after {
+      content: ""; position: absolute; left: 0; bottom: -3px;
+      height: 2px; width: 0; background: #ffeb3b;
+      transition: width .25s ease;
+    }
+    .navbar a:hover { color: #ffeb3b; }
+    .navbar a:hover::after { width: 100%; }
+    .navbar a.active { font-weight: bold; }
+    .navbar a.active::after { width: 100%; }
+
+    /* 🖼️ Float media */
+    .wrap { margin: 40px 0; }
+    .wrap::after { content: ""; display: table; clear: both; }
+    .float-right {
+      float: right; max-width: 42%; margin: 6px 0 12px 22px;
+      border-radius: 12px;
+      transition: transform .35s ease, box-shadow .35s ease, filter .35s ease;
+    }
+    .float-left {
+      float: left; max-width: 42%; margin: 6px 22px 12px 0;
+      border-radius: 12px;
+      transition: transform .35s ease, box-shadow .35s ease, filter .35s ease;
+    }
+    img.float-left, img.float-right {
+      height: auto; display: block; border:1px solid #1b5e20;
+    }
+    img.float-left:hover, img.float-right:hover {
+      transform: scale(1.03);
+      box-shadow: 0 10px 26px rgba(0,0,0,.25);
+      filter: saturate(1.08);
+    }
+
+    h1 { color: green; font-size: 40px; margin: 10px 0 14px; }
+    hr { border: 0; height: 3px; background: #000; margin: 40px 0; }
+
+    /* 🌙 Dark Mode */
+    .dark-toggle {
+      position: fixed; right: 16px; top: 16px; z-index: 2100;
+      background: #2e7d32; color: #fff; border: 0; border-radius: 8px;
+      padding: 10px 14px; cursor: pointer;
+      box-shadow: 0 4px 14px rgba(0,0,0,.2);
+    }
+    .dark-toggle:hover { background: #1b5e20; }
+
+    body.dark { background: #111; color: #e0e0e0; }
+    body.dark .navbar { background: linear-gradient(90deg, #003300, #004d00); }
+    body.dark h1 { color: #86efac; }
+    body.dark img.float-left, body.dark img.float-right {
+      border-color: #0ea5e9;
+    }
+
+    /* 🦶 Footer */
+    footer {
+      background: #0b1a0b; color: #fff;
+      padding: 50px 20px 30px;
+    }
+    .footer-inner {
+      max-width: 1100px; margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 24px;
+      justify-items: center;
+      text-align: center;
+    }
+    footer h3 { color: #86efac; margin-bottom: 10px; font-size: 22px; }
+    footer a { color: #d1fae5; text-decoration: none; display: inline-block; margin: 6px 10px; }
+    footer a:hover { color: #ffeb3b; }
+    .socials a { font-size: 24px; margin: 0 8px; }
+    .copyright {
+      text-align: center; margin-top: 20px; opacity: .8; font-size: 14px;
+    }
+    .back-to-top {
+      display: inline-block; margin-top: 8px; font-size: 14px;
+      border: 1px solid #86efac; padding: 6px 10px; border-radius: 8px;
+    }
+
+    /* 📱 Responsive */
+    @media (max-width: 768px) {
+      main { padding: 16px; }
+      .float-left, .float-right { float: none; max-width: 100%; margin: 10px auto; }
+      .navbar { flex-wrap: wrap; padding: 10px; }
+      .navbar a { margin: 6px 12px; font-size: 18px; }
+    }
+  </style>
+</head>
+<body>
+  <!-- Dark Mode Toggle -->
+  <button class="dark-toggle" onclick="document.body.classList.toggle('dark')">🌙 Dark Mode</button>
+
+  <!-- Intro Overlay -->
+  <div id="intro" class="intro-overlay">Education</div>
+
+  <!-- Navbar -->
+  <nav class="navbar">
+    <a href="Pakistan Website.html">Home</a>
+    <a href="Provinces.html">Provinces</a>
+    <a href="Education.html" class="active">Education</a>
+  </nav>
+
+  <main>
+    <!-- Education Intro -->
+    <div class="wrap">
+      <h1><u>Education</u></h1>
+      <img src="Pics/State_emblem_of_Pakistan.svg.png" class="float-right" alt="State Emblem of Pakistan">
+      <p>Education in Pakistan is overseen by the Federal Ministry of Education and the provincial governments, whereas the federal 
+        government mostly assists in curriculum development, accreditation and the financing of research and development. Article 25-A
+        of the Constitution of Pakistan obligates the state to provide free and compulsory quality education to children of the age
+        group 5 to 16 years. "The State shall provide free and compulsory education to all children of the age of five to sixteen
+        years in such a manner as may be determined by law".</p>
+      <p>The education system in Pakistan is generally divided into six levels: preschool (for the age from 3 to 5 years), primary
+        (years one to five), middle (years six to eight), high (years nine and ten, leading to the Secondary School Certificate or SSC),
+        intermediate (years eleven and twelve, leading to a Higher Secondary School Certificate or HSSC), and university programs 
+        leading to undergraduate and graduate degrees. The Higher Education Commission established in 2002 is responsible for all 
+        universities and degree awarding institutes. It was established in 2002 with Atta-ur-Rahman as its Founding Chairman.</p>
+      <p>Pakistan still has a low literacy rate relative to other countries. As of 2016 Pakistan's literacy rates range from 82% 
+        in Islamabad to 23% in the Torghar District. Literacy rates vary by gender and region. In tribal areas female literacy 
+        is 9.5%, while Azad Kashmir has a literacy rate of 74%. According to the data, Pakistan faces a significant unemployment 
+        challenge, particularly among its educated youth, with over 31% of them being unemployed. Moreover, women account for 51% of 
+        the overall unemployed population, highlighting a gender disparity in employment opportunities. Pakistan produces about 
+        445,000 university graduates and 25,000–30,000 computer science graduates per year. As of 2021 Pakistan's population of 
+        children not in school (22.8 million children) is the second largest in the world after Nigeria.</p>
+    </div>
+
+    <hr>
+
+    <!-- Primary Education -->
+    <div class="wrap">
+      <h1 style="text-align:center;"><u>Primary Education</u></h1>
+      <img src="Pics/zlm02yb2qtcw84k8.jpg" class="float-left" alt="Primary Education">
+      <p>Only about 67.5% of Pakistani children finish primary school education. The standard national system of education is mainly 
+        inspired from the English educational system. Pre-school education is designed for 3–5 years old and usually consists of three 
+        stages: Play Group, Nursery and Kindergarten. After pre-school education, students go through junior school from years 1 to 5. 
+        This is followed by middle school from years 6 to 8. At middle school, single-sex education is usually preferred by the community, 
+        but co-education is also common in urban cities. The curriculum is usually subject to the institution.</p>
+      <p>The eight commonly examined disciplines are Arts, Computer Studies and ICT, General Science, Modern Languages (Urdu, English), 
+        Mathematics, Religious Education, Social Studies. Some schools also offer drama, music, PE, home economics, astronomy, psychology, 
+        archaeology, and anthropology. Provincial languages such as Punjabi, Sindhi, Pashto may also be taught. Foreign languages like 
+        German, Turkish, Arabic, Persian, French and Chinese are taught in some institutes.</p>
+    </div>
+
+    <hr>
+
+    <!-- Secondary Education -->
+    <div class="wrap">
+      <h1 style="text-align:center;"><u>Secondary Education</u></h1>
+      <img src="Pics/college.jpg" class="float-right" alt="Secondary Education">
+      <p>Secondary education in Pakistan begins in year 9 and lasts for four years. After end of each of the school years, students are 
+        required to pass a national examination administered by a regional Board of Intermediate and Secondary Education (BISE).</p>
+      <p>Upon completion of year 9, students take SSC-I exams, then SSC-II at the end of year 10. Successful students receive a Secondary 
+        School Certificate (Matric). Curriculum includes electives (Biology, Chemistry, Physics, Computer) and compulsory subjects 
+        (Math, English, Urdu, Islamiat, Pakistan Studies). Students then move to intermediate college (years 11–12), completing HSSC-I 
+        and II. This is called FSc/FA/ICS. Alternatives include O/A Levels, IGCSE, AP, and Technical Education (Matric Tech, DAE).</p>
+    </div>
+
+    <hr>
+
+    <!-- Tertiary Education -->
+    <div class="wrap">
+      <h1 style="text-align:center;"><u>Tertiary Education</u></h1>
+      <img src="Pics/PU.jpeg" class="float-left" alt="Punjab University">
+      <p>As of 2007, 6% of Pakistanis (9% men, 3.5% women) were university graduates. Plans were made to raise this to 15% by 2020. 
+        After HSSC, students may study professional degrees such as engineering, medicine, law, pharmacy, nursing, veterinary sciences, 
+        or general degrees (BA, BSc, BCom, BBA). Bachelor’s can be Pass (2 years) or Honors (4 years). Honours degrees specialize in a 
+        field (e.g., Biochemistry).</p>
+      <p>Teacher education programs include Associate degrees, B.Ed (2–4 years), Master’s, and PhD. Training institutes exist nationwide, 
+        though criticized for being knowledge-based rather than application-based.</p>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-inner">
+      <div>
+        <h3>Quick Links</h3>
+        <a href="Pakistan Website.html">Home</a>
+        <a href="Provinces.html">Provinces</a>
+        <a href="Education.html">Education</a>
+      </div>
+      <div>
+        <h3>Contact</h3>
+        <div>Email: info@pakistan.com</div>
+        <div>Phone: +92 300 1234567</div>
+        <div>Islamabad, Pakistan</div>
+      </div>
+      <div>
+        <h3>Follow Us</h3>
+        <div class="socials">
+          <a href="#"><i class="fa-brands fa-instagram"></i></a>
+          <a href="#"><i class="fa-brands fa-whatsapp"></i></a>
+          <a href="#"><i class="fa-brands fa-twitter"></i></a>
+        </div>
+        <a class="back-to-top" href="#top" onclick="window.scrollTo({top:0,behavior:'smooth'})">Back to top ↑</a>
+      </div>
+    </div>
+    <div class="copyright">© 2025 Abdul-Hannan • All Rights Reserved</div>
+  </footer>
+
+  <script>
+    const intro = document.getElementById('intro');
+    intro.addEventListener('animationend', () => intro.style.display = 'none');
+  </script>
+</body>
+</html>

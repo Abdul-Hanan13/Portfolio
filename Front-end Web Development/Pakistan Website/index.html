@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Pakistan</title>
+  <link rel="icon" href="Favicon 2.png">
+  <link href="https://fonts.googleapis.com/css?family=Abril Fatface" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+
+  <style>
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: "Abril Fatface", serif;
+      font-size: 20px;
+      margin: 0;
+      text-align: justify;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      background: #fff;
+      color: #111;
+    }
+    main { flex: 1; padding: 20px; max-width: 1100px; margin: 0 auto; }
+
+    /* 🌟 Intro overlay (doesn't increase page height) */
+    .intro-overlay {
+      position: fixed; inset: 0; z-index: 2000;
+      background: url('Pics/Islamabad.jpeg') center/cover no-repeat;
+      display: flex; align-items: center; justify-content: center;
+      color: white; text-shadow: 2px 2px 10px black;
+      font-size: clamp(48px, 10vw, 120px);
+      animation: introOut 1.8s ease forwards;
+      will-change: opacity, transform;
+    }
+    @keyframes introOut {
+      0%   { opacity: 1; transform: scale(1);}
+      80%  { opacity: 1; transform: scale(1.04);}
+      100% { opacity: 0; transform: scale(1.06);}
+    }
+
+    /* 🔷 Navbar (professional) */
+    .navbar {
+      position: sticky; top: 0; z-index: 1000;
+      background: linear-gradient(90deg, #006400, #228B22);
+      display: flex; justify-content: center; align-items: center;
+      padding: 14px 10px;
+      box-shadow: 0 2px 10px rgba(0,0,0,.15);
+    }
+    .navbar a {
+      color: #fff; text-decoration: none; font-size: 20px;
+      margin: 0 18px; padding: 8px 6px; position: relative;
+      transition: color .25s ease;
+    }
+    .navbar a::after {
+      content: ""; position: absolute; left: 0; bottom: -3px;
+      height: 2px; width: 0; background: #ffeb3b;
+      transition: width .25s ease;
+    }
+    .navbar a:hover { color: #ffeb3b; }
+    .navbar a:hover::after { width: 100%; }
+    .navbar a.active { font-weight: bold; }
+    .navbar a.active::after { width: 100%; }
+
+    /* 🖼️ Float media with text wrapping */
+    .wrap { margin: 40px 0; }
+    .wrap::after { content: ""; display: table; clear: both; }
+    .float-right {
+      float: right; max-width: 42%; margin: 6px 0 12px 22px;
+      border-radius: 12px;
+      transition: transform .35s ease, box-shadow .35s ease, filter .35s ease;
+    }
+    .float-left {
+      float: left; max-width: 42%; margin: 6px 22px 12px 0;
+      border-radius: 12px;
+      transition: transform .35s ease, box-shadow .35s ease, filter .35s ease;
+    }
+    img.float-left, img.float-right, video.float-left, video.float-right {
+      height: auto; display: block; border:1px solid #1b5e20;
+    }
+    /* Hover effect */
+    img.float-left:hover, img.float-right:hover,
+    video.float-left:hover, video.float-right:hover {
+      transform: scale(1.03);
+      box-shadow: 0 10px 26px rgba(0,0,0,.25);
+      filter: saturate(1.08);
+    }
+
+    h1 { color: green; font-size: 40px; margin: 10px 0 14px; }
+    hr { border: 0; height: 3px; background: #000; margin: 40px 0; }
+
+    /* 🧾 Table styling (anthem) */
+    .table-container { overflow-x: auto; margin-top: 16px; }
+    table { border-collapse: collapse; width: 100%; min-width: 820px; }
+    th, td { border: 2px solid #145214; padding: 12px; vertical-align: top; }
+    th { background: #e8f5e9; color: #145214; }
+    td { background: #fafafa; }
+    .urdu { font-size: 22px; line-height: 1.6; }
+
+    /* 🌙 Dark Mode */
+    .dark-toggle {
+      position: fixed; right: 16px; top: 16px; z-index: 2100;
+      background: #2e7d32; color: #fff; border: 0; border-radius: 8px;
+      padding: 10px 14px; cursor: pointer;
+      box-shadow: 0 4px 14px rgba(0,0,0,.2);
+    }
+    .dark-toggle:hover { background: #1b5e20; }
+
+    body.dark { background: #111; color: #e0e0e0; }
+    body.dark .navbar { background: linear-gradient(90deg, #003300, #004d00); }
+    body.dark h1 { color: #86efac; }
+    body.dark table td { background: #0f172a; color: #e5e7eb; }
+    body.dark table th { background: #052e16; color: #bbf7d0; }
+    body.dark img.float-left, body.dark img.float-right,
+    body.dark video.float-left, body.dark video.float-right {
+      border-color: #0ea5e9;
+    }
+
+    /* 🦶 Footer (centered, professional) */
+    footer {
+      background: #0b1a0b; color: #fff;
+      padding: 50px 20px 30px;
+    }
+    .footer-inner {
+      max-width: 1100px; margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 24px;
+      justify-items: center;           /* center columns */
+      text-align: center;              /* center text */
+    }
+    footer h3 { color: #86efac; margin-bottom: 10px; font-size: 22px; }
+    footer a { color: #d1fae5; text-decoration: none; display: inline-block; margin: 6px 10px; }
+    footer a:hover { color: #ffeb3b; }
+    .socials a { font-size: 24px; margin: 0 8px; }
+    .copyright {
+      text-align: center; margin-top: 20px; opacity: .8; font-size: 14px;
+    }
+    .back-to-top {
+      display: inline-block; margin-top: 8px; font-size: 14px;
+      border: 1px solid #86efac; padding: 6px 10px; border-radius: 8px;
+    }
+
+/* 📱 Responsive Fixes */
+@media (max-width: 1024px) {
+  body { font-size: 18px; }
+  h1 { font-size: 32px; }
+}
+
+@media (max-width: 768px) {
+  main { padding: 16px; font-size: 17px; }
+  h1 { font-size: 28px; }
+
+  /* Navbar stacks better */
+  .navbar { flex-wrap: wrap; padding: 10px; }
+  .navbar a { margin: 6px 12px; font-size: 18px; }
+
+  /* Float images stack full width */
+  .float-left, .float-right {
+    float: none;
+    max-width: 100%;
+    margin: 12px auto;
+    display: block;
+  }
+
+  /* Video adjusts */
+  video.float-left, video.float-right {
+    width: 100%;
+    height: auto;
+  }
+
+  /* Table scroll fix */
+  .table-container { overflow-x: auto; }
+  table { font-size: 16px; min-width: 600px; }
+}
+
+@media (max-width: 480px) {
+  body { font-size: 16px; }
+  h1 { font-size: 24px; }
+
+  /* Navbar links smaller */
+  .navbar a { font-size: 16px; margin: 4px 8px; }
+
+  /* Table even smaller */
+  table { font-size: 14px; min-width: 480px; }
+}
+
+  </style>
+</head>
+<body>
+  <!-- Dark Mode Toggle -->
+  <button class="dark-toggle" onclick="document.body.classList.toggle('dark')">🌙 Dark Mode</button>
+
+  <!-- Intro animation overlay (does NOT change page height) -->
+  <div id="intro" class="intro-overlay">Pakistan</div>
+
+  <!-- Navbar -->
+  <nav class="navbar">
+    <a href="Pakistan Website.html" class="active">Home</a>
+    <a href="Provinces.html">Provinces</a>
+    <a href="Education.html">Education</a>
+  </nav>
+
+  <main>
+    <!-- Intro Text -->
+    <div class="wrap">
+      <h1>Pakistan</h1>
+      <p>Pakistan is located in South Asia, bordered by Afghanistan, Iran, India, China, and the Arabian Sea. 
+        The country has a total area of about 881,913 square kilometers (340,509 square miles), making it the 
+        33rd largest country in the world by land area. Pakistan has a diverse geography, ranging from high 
+        mountains and glaciers in the north, to fertile plains and deserts in the south. The Indus River is 
+        the longest and most important river in Pakistan, flowing from the Himalayas to the Arabian Sea.</p>
+    </div>
+
+    <hr>
+
+    <!-- Map -->
+    <div class="wrap">
+      <img src="Pics/Map.png" alt="Pakistan Map" class="float-right" loading="lazy">
+      <h1>Map</h1>
+      <p>Pakistan is located in South Asia, bordered by Afghanistan, Iran, India, China, and the Arabian Sea. 
+        The country has a total area of about 881,913 square kilometers (340,509 square miles), making it the 
+        33rd largest country in the world by land area. Pakistan has a diverse geography, ranging from high 
+        mountains and glaciers in the north, to fertile plains and deserts in the south. The Indus River is 
+        the longest and most important river in Pakistan, flowing from the Himalayas to the Arabian Sea. 
+        The river provides water for irrigation, hydroelectric power, and transportation. Pakistan is divided 
+        into four provinces: Punjab, Sindh, Khyber Pakhtunkhwa, and Balochistan. Each province has its own capital 
+        and administrative structure. The federal capital of Pakistan is Islamabad, which is located in the Islamabad 
+        Capital Territory. Other major cities include Karachi, Lahore, Faisalabad, Rawalpindi, and Peshawar. 
+        Pakistan also has two autonomous regions: Gilgit-Baltistan and Azad Jammu and Kashmir. These regions are 
+        disputed by India and Pakistan over the Kashmir issue. Pakistan’s map also shows its international borders 
+        with its neighboring countries. Pakistan shares a 2,670-kilometer (1,660-mile) border with Afghanistan, a 959-kilometer 
+        (596-mile) border with Iran, a 3,323-kilometer (2,065-mile) border with India, a 523-kilometer (325-mile) border with China, 
+        and a 1,046-kilometer (650-mile) coastline along the Arabian Sea.</p>
+    </div>
+
+    <hr>
+
+    <!-- Flag -->
+    <div class="wrap">
+      <img src="Pics/pk-flag.jpg" alt="Flag of Pakistan" class="float-left" loading="lazy">
+      <h1>Flag</h1>
+      <p>The flag of Pakistan is a green field with a white crescent and star in the center, and a white vertical stripe at the hoist. 
+        The flag was adopted by the Constituent Assembly of Pakistan on 11 August 1947, just before the country gained independence from the 
+        British Empire. The flag represents the Islamic identity and heritage of Pakistan, as well as the diversity and unity of its people. 
+        The green color symbolizes prosperity and peace, the white color stands for all the minority religions in the country, 
+        the crescent signifies progress, and the star denotes knowledge and light. The flag is also mentioned in the third verse of Pakistan's 
+        national anthem, and is flown on several important occasions, such as Republic Day, Independence Day, and Defence Day.</p>
+    </div>
+
+    <hr>
+
+    <!-- National Anthem -->
+    <div class="wrap">
+      <video controls class="float-right" src="Pakistan National Anthem.mp4" poster="Pics/Vid pic.jpg"></video>
+      <h1>National Anthem</h1>
+      <p>The national anthem of Pakistan is called Qaumi Taranah (Urdu: قومی ترانہ), which means “National Anthem” in English. 
+        It is also known as Pak Sarzamin (Urdu: پاک سرزمین), which means “Thy Sacred Land”. The lyrics of the anthem were written 
+        by Hafeez Jalandhari in 1952, and the music was composed by Ahmed G. Chagla in 1949. The anthem was officially adopted by the 
+        Government of Pakistan on 16 August 1954.</p>
+      <p>The anthem consists of three stanzas, each with four lines. The first stanza praises the sacred land of Pakistan, the symbol of high resolve, and the citadel of faith. The second stanza describes the order of the land as the might of the brotherhood of the people, and the nation, the country, and the state as shining in glory everlasting. The third stanza declares the flag of the crescent and the star as the leader to progress and perfection, the interpreter of the past, the glory of the present, and the inspiration of the future. The anthem ends with a reference to the protection of God, the owner of majesty 12.</p>
+      <p>The anthem is sung in Urdu, which is the national language of Pakistan. However, some words are derived from Persian and Arabic languages, which are common sources of vocabulary for Urdu. The anthem uses a highly poetic and formal register of Urdu, which may not be easily understood by ordinary speakers. The anthem also follows a specific rhyme scheme and meter, which make it suitable for singing 1.</p>
+      <p>The anthem is usually played on official occasions, such as state visits, national holidays, sports events, and school assemblies. It is also broadcast on radio and television at the start and end of each day. The anthem is a source of pride and patriotism for many Pakistanis, who often sing it with enthusiasm and respect</p>
+
+      <div class="table-container">
+        <table>
+          <tr>
+            <th>Urdu Script</th>
+            <th>Roman Script</th>
+            <th>English Translation</th>
+          </tr>
+          <tr>
+            <td class="urdu">پاک سرزمین شاد باد
+              <br> کشورِ حسین شاد باد
+              <br> تو نشانِ عزمِ عالی شان
+              <br> ارضِ پاکستان!
+              <br> مرکزِ یقین شاد باد
+              <br><br>
+              پاک سرزمین کا نظام
+              <br> قوتِ اخوتِ عوام
+              <br> قوم ، ملک ، سلطنت
+              <br> پائندہ تابندہ باد!
+              <br>شاد باد منزلِ مراد
+              <br><br>
+              پرچمِ ستارہ و ہلال
+              <br> رہبرِ ترقی و کمال
+              <br> ترجمانِ ماضی شانِ حال
+              <br> جانِ استقبال!
+              <br> سایۂ خدائے ذوالجلال
+            </td>
+            <td>
+              Pak sarzamin shad bad <br>
+              Kishwar-e-Haseen shad bad <br>
+              Tu nishan-e-azm-e-ali shan <br>
+              Arz-e-Pakistan! <br>
+              Markaz-e-yaqin shad bad <br>
+              <br>
+              Pak sarzamin ka nizam <br>
+              Quwat-e-ukhuwat-e-awam <br>
+              Qaum, mulk, saltanat <br>
+              Painda tabinda bad! <br>
+              Shad bad manzil-e-murad <br>
+              <br>
+              Parcham-e-sitara-o-hilal <br>
+              Rahbar-e-tarraqi-o-kamal <br>
+              Tarjuman-e-mazi shan-e-hal <br>
+              Jan-e-istiqbal! <br>
+              Sayyai Khuda-e-zuljalal
+            </td>
+            <td>
+              Blessed be the sacred land <br>
+              Happy be the bounteous realm <br>
+              Symbol of high resolve <br>
+              Land of Pakistan! <br>
+              Blessed be thou citadel of faith <br>
+              <br>
+              The order of this sacred land <br>
+              Is the might of the brotherhood of the people <br>
+              May the nation, the country, and the state <br>
+              Shine in glory everlasting! <br>
+              Blessed be the goal of our ambition <br>
+              <br>
+              This flag of the crescent and star <br>
+              Leads the way to progress and perfection <br>
+              Interpreter of our past glory of our present <br>
+              Inspiration of our future! <br>
+              Symbol of Almighty's protection
+            </td>
+          </tr>
+        </table>
+      </div>
+    </div>
+
+    <hr>
+
+    <!-- Nuclear Power -->
+    <div class="wrap">
+      <img src="Pics/Nuclear.jpg" alt="Nuclear Program" class="float-left" loading="lazy">
+      <h1>Nuclear Power</h1>
+      <p>Pakistan is the first Muslim majority country in the world to construct and operate civil nuclear power plants. 
+        The Pakistan Atomic Energy Commission (PAEC), the scientific and nuclear governmental agency, is solely responsible for 
+        operating these power plants. Pakistan began developing nuclear weapons in January 1972 under Prime Minister Zulfikar Ali 
+        Bhutto, who delegated the program to the Chairman of the PAEC Munir Ahmad Khan with a commitment to having the device ready 
+        by the end of 1976. Pakistan has five nuclear power plants with a total capacity of 1,430 MW, and three more under 
+        construction with a planned capacity of 3,930 MW.</p>
+    </div>
+  </main>
+
+  <!-- Footer (centered) -->
+  <footer>
+    <div class="footer-inner">
+      <div>
+        <h3>Quick Links</h3>
+        <a href="Pakistan Website.html">Home</a>
+        <a href="Provinces.html">Provinces</a>
+        <a href="Education.html">Education</a>
+      </div>
+      <div>
+        <h3>Contact</h3>
+        <div>Email: info@pakistan.com</div>
+        <div>Phone: +92 300 1234567</div>
+        <div>Islamabad, Pakistan</div>
+      </div>
+      <div>
+        <h3>Follow Us</h3>
+        <div class="socials">
+          <a href="#"><i class="fa-brands fa-instagram"></i></a>
+          <a href="#"><i class="fa-brands fa-whatsapp"></i></a>
+          <a href="#"><i class="fa-brands fa-twitter"></i></a>
+        </div>
+        <a class="back-to-top" href="#top" onclick="window.scrollTo({top:0,behavior:'smooth'})">Back to top ↑</a>
+      </div>
+    </div>
+    <div class="copyright">© 2025 Abdul-Hannan • All Rights Reserved</div>
+  </footer>
+
+  <script>
+    // remove intro overlay after animation so it doesn't block clicks
+    const intro = document.getElementById('intro');
+    intro.addEventListener('animationend', () => intro.style.display = 'none');
+  </script>
+</body>
+</html>
