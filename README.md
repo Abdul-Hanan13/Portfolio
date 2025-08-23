@@ -1,2 +1,2 @@
 # Portfolio
-My works along the way 
+My portfolio including Web Development, Graphic Design, and C++ Projects.
