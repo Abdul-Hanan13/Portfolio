@@ -4,20 +4,49 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
     <style>
-        body { font-family: Arial, sans-serif; text-align: center; padding: 50px; background-color: #f5f5f5; }
-        h1 { color: #333; }
-        ul { list-style-type: none; padding: 0; }
-        li { margin: 20px 0; }
-        a { text-decoration: none; color: #0077cc; font-size: 20px; }
-        a:hover { text-decoration: underline; }
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif; }
+        body {
+            min-height: 100vh;
+            background: linear-gradient(135deg, #1f1c2c, #928dab);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: #fff;
+            text-align: center;
+        }
+        h1 { font-size: 3rem; font-weight: 800; margin-bottom: 1rem; text-shadow: 2px 2px 8px rgba(0,0,0,0.5); }
+        p { font-size: 1.2rem; margin-bottom: 2rem; color: #ddd; }
+        .projects { display: flex; gap: 2rem; flex-wrap: wrap; justify-content: center; }
+        .card {
+            background: rgba(255,255,255,0.1);
+            border-radius: 15px;
+            padding: 2rem 3rem;
+            min-width: 250px;
+            transition: 0.3s;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+        }
+        .card:hover { transform: translateY(-10px); background: rgba(255,255,255,0.2); }
+        .card a { text-decoration: none; color: #fff; font-weight: 600; font-size: 1.3rem; display: block; transition: 0.2s; }
+        .card a:hover { color: #ffd700; }
+        footer { margin-top: 3rem; font-size: 0.9rem; color: #ccc; }
     </style>
 </head>
 <body>
-    <h1>Welcome to My Portfolio</h1>
-    <ul>
-        <li><a href="Front- end Web develoopment/Pakistan Website/index.html" target="_blank">Pakistan Website</a></li>
-        <li><a href="Front- end Web develoopment/Bike Website/index.html" target="_blank">Bike Website</a></li>
-    </ul>
+    <h1>My Portfolio</h1>
+    <p>Explore my web development projects</p>
+
+    <div class="projects">
+        <div class="card">
+            <a href="Front-end%20Web%20development/Pakistan%20Website/index.html" target="_blank">Pakistan Website</a>
+        </div>
+        <div class="card">
+            <a href="Front-end%20Web%20development/Bike%20Website/index.html" target="_blank">Bike Website</a>
+        </div>
+    </div>
+
+    <footer>© 2025 Abdul Hannan</footer>
 </body>
 </html>
