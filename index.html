@@ -6,126 +6,160 @@
 <title>Abdul Hannan | Portfolio</title>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
 <style>
-    * { margin:0; padding:0; box-sizing:border-box; font-family:'Inter', sans-serif; }
-    body {
-        min-height:100vh;
-        background: #0d1117;
-        color: #c9d1d9;
-        position: relative;
-        overflow-x: hidden;
-    }
+* { margin:0; padding:0; box-sizing:border-box; font-family:'Inter', sans-serif; }
+body {
+    min-height:100vh;
+    background: #0d1117;
+    color: #c9d1d9;
+    position: relative;
+    overflow-x: hidden;
+}
 
-    /* Background shapes */
-    body::before {
-        content: '';
-        position: absolute;
-        top: -50px; left: -50px;
-        width: 400px; height: 400px;
-        background: rgba(58, 166, 255, 0.05);
-        border-radius: 50%;
-        z-index: 0;
-    }
-    body::after {
-        content: '';
-        position: absolute;
-        bottom: -60px; right: -80px;
-        width: 500px; height: 500px;
-        background: rgba(57, 211, 83, 0.05);
-        border-radius: 50%;
-        z-index: 0;
-    }
+/* Canvas Background */
+canvas#tech-bg {
+    position: absolute;
+    top:0; left:0;
+    width:100%; height:100%;
+    z-index:0;
+}
 
-    header { text-align:center; padding:80px 20px; position: relative; z-index:1; }
-    header h1 { font-size:3rem; font-weight:800; color:#58a6ff; }
-    header p { font-size:1.2rem; color:#8b949e; margin-top:10px; }
+/* Header */
+header {
+    text-align:center;
+    padding:80px 20px;
+    position: relative; 
+    z-index:1;
+}
+header h1 {
+    font-size:3rem; 
+    font-weight:800; 
+    color:#58a6ff;
+}
+header p {
+    font-size:1.2rem; 
+    color:#8b949e; 
+    margin-top:10px;
+}
 
-    section { padding:60px 20px; position: relative; z-index:1; }
-    h2 { text-align:center; margin-bottom:40px; font-size:2rem; color:#39d353; letter-spacing:1px; }
+/* Sections */
+section { 
+    padding:60px 20px; 
+    position: relative; 
+    z-index:1; 
+}
+h2 {
+    text-align:center; 
+    margin-bottom:40px; 
+    font-size:2rem; 
+    color:#39d353; 
+    letter-spacing:1px; 
+}
 
-    .grid {
-        display:flex;
-        flex-wrap:wrap;
-        gap:2rem;
-        justify-content:center;
-    }
+/* Grid */
+.grid {
+    display:flex;
+    flex-wrap:wrap;
+    gap:2rem;
+    justify-content:center;
+}
 
-    .card {
-        background: #161b22;
-        border: 1px solid #30363d;
-        border-radius:16px;
-        padding:25px;
-        min-width:260px;
-        max-width:300px;
-        text-align:center;
-        box-shadow:0 4px 25px rgba(0,0,0,0.5);
-        transition: transform 0.4s ease, box-shadow 0.4s ease, border-color 0.4s ease;
-        position: relative;
-        overflow: hidden;
-    }
+/* Card Style */
+.card {
+    background: #161b22;
+    border-radius:16px;
+    padding:25px;
+    min-width:260px;
+    max-width:300px;
+    text-align:center;
+    box-shadow: 0 0 15px rgba(57,211,83,0.2);
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+    position: relative;
+    overflow: hidden;
+    border: 1px solid #30363d;
+}
+.card:hover {
+    transform: translateY(-8px) scale(1.03);
+    box-shadow: 0 0 30px rgba(57,211,83,0.6), 0 12px 35px rgba(0,0,0,0.7);
+}
+.card img {
+    width:100%;
+    border-radius:12px;
+    margin-bottom:15px;
+    transition: transform 0.4s ease;
+}
+.card:hover img { transform: scale(1.06); }
 
-    /* Card hover effect */
-    .card:hover {
-        transform: translateY(-10px);
-        box-shadow: 0 12px 35px rgba(0,0,0,0.8);
-        border-color:#39d353;
-    }
+/* Buttons */
+.card a {
+    display: inline-block;
+    padding: 12px 25px;
+    border-radius: 30px;
+    text-decoration:none;
+    font-weight:600;
+    font-size:1.1rem;
+    background: linear-gradient(135deg, #39d353, #58a6ff);
+    color:#0d1117;
+    transition: all 0.3s ease;
+    position: relative;
+    z-index:1;
+    box-shadow: 0 4px 15px rgba(57,211,83,0.3);
+}
+.card a:hover {
+    background: linear-gradient(135deg, #58a6ff, #39d353);
+    color:#fff;
+    transform: translateY(-3px) scale(1.05);
+    box-shadow: 0 8px 25px rgba(57,211,83,0.5);
+}
 
-    .card img {
-        width:100%;
-        border-radius:12px;
-        margin-bottom:15px;
-        transition: transform 0.4s ease;
-    }
-    .card:hover img { transform: scale(1.07); }
+/* Footer */
+footer {
+    text-align:center;
+    padding:50px 20px;
+    font-size:0.95rem;
+    color:#c9d1d9;
+    border-top:2px solid #39d353;
+    margin-top:60px;
+    position: relative; 
+    z-index:1;
+    background: #0d1117;
+}
+footer .contact-info {
+    display:flex;
+    justify-content:center;
+    flex-wrap:wrap;
+    gap:2rem;
+    margin-bottom:10px;
+}
+footer .contact-info p, footer .contact-info a {
+    margin:0;
+    font-weight:500;
+}
+footer a {
+    color:#39d353; 
+    text-decoration:none; 
+}
+footer a:hover { 
+    text-decoration:underline; 
+}
 
-    /* Button style */
-    .card a {
-        display: inline-block;
-        padding: 12px 25px;
-        border-radius: 8px;
-        text-decoration:none;
-        font-weight:600;
-        font-size:1.1rem;
-        color:#0d1117;
-        background: #58a6ff;
-        transition: all 0.3s ease;
-        position: relative;
-        z-index:1;
-    }
-
-    /* Button hover effect */
-    .card a:hover {
-        background: #39d353;
-        color:#fff;
-        transform: translateY(-3px);
-        box-shadow: 0 6px 20px rgba(57,211,83,0.6);
-    }
-
-    footer {
-        text-align:center;
-        padding:40px 20px;
-        font-size:0.9rem;
-        color:#8b949e;
-        border-top:1px solid #30363d;
-        margin-top:40px;
-        position: relative; z-index:1;
-    }
-
-    @media(max-width:768px){
-        header h1 { font-size:2.2rem; }
-        h2 { font-size:1.7rem; }
-        .card { min-width:220px; max-width:260px; }
-    }
+/* Responsive */
+@media(max-width:768px){
+    header h1 { font-size:2.2rem; }
+    h2 { font-size:1.7rem; }
+    .card { min-width:220px; max-width:260px; }
+    footer .contact-info { flex-direction: column; gap:0.5rem; }
+}
 </style>
 </head>
 <body>
+
+<canvas id="tech-bg"></canvas>
 
 <header>
     <h1>Abdul Hannan Portfolio</h1>
     <p>Web Development | Graphic Design | C++ Projects</p>
 </header>
 
-<!-- Web Development Section -->
 <section>
     <h2>Web Development</h2>
     <div class="grid">
@@ -138,7 +172,6 @@
     </div>
 </section>
 
-<!-- Graphic Design Section -->
 <section>
     <h2>Graphic Design</h2>
     <div class="grid">
@@ -149,7 +182,6 @@
     </div>
 </section>
 
-<!-- C++ Projects Section -->
 <section>
     <h2>C++ Projects</h2>
     <div class="grid">
@@ -165,7 +197,69 @@
     </div>
 </section>
 
-<footer>© 2025 Abdul Hannan</footer>
+<footer>
+    <div class="contact-info">
+        <p>© 2025 Abdul Hannan</p>
+        <p>Email: <a href="mailto:abdulhannan360x@example.com">abdulhannan@example.com</a></p>
+        <p>Phone: +92-3334474338</p>
+        <p>LinkedIn: <a href="www.linkedin.com/in/abdul-hanan-amar-5a1020256" target="_blank">linkedin.com/in/abdulhannan</a></p>
+    </div>
+</footer>
+
+<script>
+// Tech Network Background
+const canvas = document.getElementById('tech-bg');
+const ctx = canvas.getContext('2d');
+canvas.width = window.innerWidth;
+canvas.height = window.innerHeight;
+
+let nodes = [];
+for(let i=0;i<60;i++){
+    nodes.push({
+        x: Math.random()*canvas.width,
+        y: Math.random()*canvas.height,
+        vx: (Math.random()-0.5)*0.3,
+        vy: (Math.random()-0.5)*0.3,
+        size: 1.5 + Math.random()*2
+    });
+}
+
+function drawNetwork() {
+    ctx.clearRect(0,0,canvas.width,canvas.height);
+    for(let i=0;i<nodes.length;i++){
+        for(let j=i+1;j<nodes.length;j++){
+            let dx = nodes[i].x - nodes[j].x;
+            let dy = nodes[i].y - nodes[j].y;
+            let dist = Math.sqrt(dx*dx + dy*dy);
+            if(dist<100){
+                ctx.strokeStyle='rgba(57,211,83,'+(1-dist/100)*0.2+')';
+                ctx.lineWidth=1;
+                ctx.beginPath();
+                ctx.moveTo(nodes[i].x,nodes[i].y);
+                ctx.lineTo(nodes[j].x,nodes[j].y);
+                ctx.stroke();
+            }
+        }
+    }
+    nodes.forEach(n=>{
+        n.x += n.vx;
+        n.y += n.vy;
+        if(n.x<0 || n.x>canvas.width) n.vx*=-1;
+        if(n.y<0 || n.y>canvas.height) n.vy*=-1;
+        ctx.fillStyle='rgba(57,211,83,0.5)';
+        ctx.beginPath();
+        ctx.arc(n.x,n.y,n.size,0,Math.PI*2);
+        ctx.fill();
+    });
+    requestAnimationFrame(drawNetwork);
+}
+drawNetwork();
+
+window.addEventListener('resize', ()=>{
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+});
+</script>
 
 </body>
 </html>
