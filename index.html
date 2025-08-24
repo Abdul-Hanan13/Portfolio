@@ -1,44 +1,47 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Portfolio</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
-    <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif; }
-        body {
-            min-height: 100vh;
-            background: linear-gradient(135deg, #1f1c2c, #928dab);
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            color: #fff;
-            text-align: center;
-        }
-        h1 { font-size: 3rem; font-weight: 800; margin-bottom: 1rem; text-shadow: 2px 2px 8px rgba(0,0,0,0.5); }
-        p { font-size: 1.2rem; margin-bottom: 2rem; color: #ddd; }
-        .projects { display: flex; gap: 2rem; flex-wrap: wrap; justify-content: center; }
-        .card {
-            background: rgba(255,255,255,0.1);
-            border-radius: 15px;
-            padding: 2rem 3rem;
-            min-width: 250px;
-            transition: 0.3s;
-            box-shadow: 0 8px 25px rgba(0,0,0,0.3);
-        }
-        .card:hover { transform: translateY(-10px); background: rgba(255,255,255,0.2); }
-        .card a { text-decoration: none; color: #fff; font-weight: 600; font-size: 1.3rem; display: block; transition: 0.2s; }
-        .card a:hover { color: #ffd700; }
-        footer { margin-top: 3rem; font-size: 0.9rem; color: #ccc; }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Abdul Hannan Portfolio</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+<style>
+    * { margin:0; padding:0; box-sizing:border-box; font-family:'Inter', sans-serif; }
+    body { min-height:100vh; background: linear-gradient(135deg,#1f1c2c,#928dab); color:#fff; }
+    header { text-align:center; padding:50px 20px; }
+    header h1 { font-size:3rem; font-weight:800; text-shadow: 2px 2px 8px rgba(0,0,0,0.5);}
+    header p { font-size:1.2rem; color:#ddd; margin-top:10px;}
+    section { padding:50px 20px; }
+    h2 { text-align:center; margin-bottom:30px; font-size:2rem; text-shadow:1px 1px 5px rgba(0,0,0,0.5);}
+    .grid { display:flex; flex-wrap:wrap; gap:2rem; justify-content:center; }
+    .card {
+        background: rgba(255,255,255,0.1);
+        border-radius:15px;
+        padding:20px;
+        min-width:250px;
+        max-width:300px;
+        text-align:center;
+        box-shadow:0 8px 25px rgba(0,0,0,0.3);
+        transition:0.3s;
+    }
+    .card:hover { transform: translateY(-10px); background: rgba(255,255,255,0.2); }
+    .card a { text-decoration:none; color:#fff; font-weight:600; display:block; margin-top:10px; font-size:1.1rem; }
+    .card a:hover { color:#ffd700; }
+    .card img { width:100%; border-radius:10px; }
+    footer { text-align:center; padding:30px 20px; font-size:0.9rem; color:#ccc; }
+</style>
 </head>
 <body>
-    <h1>My Portfolio</h1>
-    <p>Explore my web development projects</p>
 
-    <div class="projects">
+<header>
+    <h1>Abdul Hannan Portfolio</h1>
+    <p>Web Development | Graphic Design | C++ Projects</p>
+</header>
+
+<!-- Web Development Section -->
+<section>
+    <h2>Web Development</h2>
+    <div class="grid">
         <div class="card">
             <a href="Front-end%20Web%20Development/Pakistan%20Website/index.html" target="_blank">Pakistan Website</a>
         </div>
@@ -46,7 +49,36 @@
             <a href="Front-end%20Web%20Development/Bike%20Website/index.html" target="_blank">Bike Website</a>
         </div>
     </div>
+</section>
 
-    <footer>© 2025 Abdul Hannan</footer>
+<!-- Graphic Design Section -->
+<section>
+    <h2>Graphic Design</h2>
+    <div class="grid">
+        <div class="card">
+            <img src="Graphic-Designing/Hiring-Design.jpg" alt="Company Design">
+            <a href="#" target="_blank">Company Design</a>
+        </div>
+    </div>
+</section>
+
+<!-- C++ Projects Section -->
+<section>
+    <h2>C++ Projects</h2>
+    <div class="grid">
+        <div class="card">
+            <a href="#">Inventory System</a>
+        </div>
+        <div class="card">
+            <a href="#">AI Dream Symbol Interpretation</a>
+        </div>
+        <div class="card">
+            <a href="#">Chess Game</a>
+        </div>
+    </div>
+</section>
+
+<footer>© 2025 Abdul Hannan</footer>
+
 </body>
 </html>
