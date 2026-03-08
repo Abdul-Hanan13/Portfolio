@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Education — Pakistan</title>
+  <link rel="icon" href="Favicon 2.png">
+  <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Lora:ital,wght@0,400;0,600;1,400&family=Oswald:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+  <style>
+    :root{--green:#004d00;--green-mid:#1a6b2a;--green-light:#2e7d32;--gold:#c9973a;--cream:#f8f5ee;--white:#ffffff;--text:#1e2a1e;--muted:#5a6a5a;--border:#d0d9d0;--dark-bg:#0d130d;--dark-text:#dde8dd;--dark-muted:#7a9a7a;--r:10px;--ease:cubic-bezier(0.4,0,0.2,1)}
+    *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{font-family:'Lora',serif;font-size:18px;line-height:1.85;background:var(--cream);color:var(--text);min-height:100vh;display:flex;flex-direction:column;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;overflow-x:hidden}
+    #prog{position:fixed;top:0;left:0;height:3px;background:var(--gold);width:0;z-index:9999}
+
+    /* Intro */
+    .intro-overlay{position:fixed;inset:0;z-index:3000;background:url('Pics/State_emblem_of_Pakistan.svg.png') center/contain no-repeat #004d00;display:flex;align-items:center;justify-content:center;animation:introFade 2.2s var(--ease) forwards}
+    .intro-overlay::before{content:'';position:absolute;inset:0;background:rgba(0,50,0,.7)}
+    .intro-inner{position:relative;z-index:1;text-align:center}
+    .intro-icon{font-size:clamp(2rem,5vw,3.5rem);color:var(--gold);margin-bottom:10px;display:block}
+    .intro-inner h2{font-family:'Abril Fatface',serif;font-size:clamp(2.5rem,9vw,6rem);color:#fff;letter-spacing:5px;text-shadow:0 4px 30px rgba(0,0,0,.4)}
+    .intro-inner p{font-family:'Oswald',sans-serif;font-size:clamp(.8rem,2vw,1rem);color:rgba(255,255,255,.6);letter-spacing:6px;text-transform:uppercase;margin-top:10px}
+    @keyframes introFade{0%,70%{opacity:1}100%{opacity:0;pointer-events:none}}
+
+    /* Page hero banner */
+    .page-hero{position:relative;min-height:42vh;display:flex;align-items:flex-end;background:linear-gradient(135deg,#004d00 0%,#1a6b2a 100%);overflow:hidden}
+    .page-hero::before{content:'';position:absolute;inset:0;background:url('Pics/State_emblem_of_Pakistan.svg.png') center right/auto 130% no-repeat;opacity:.08}
+    .page-hero-content{position:relative;z-index:2;padding:48px 6% 54px;max-width:900px}
+    .page-hero-label{font-family:'Oswald',sans-serif;font-size:.7rem;letter-spacing:5px;text-transform:uppercase;color:var(--gold);margin-bottom:12px;display:flex;align-items:center;gap:10px}
+    .page-hero-label::before{content:'';display:inline-block;width:22px;height:1px;background:var(--gold)}
+    .page-hero h1{font-family:'Abril Fatface',serif;font-size:clamp(2.5rem,6vw,4.5rem);color:#fff;line-height:1.05;text-shadow:0 2px 16px rgba(0,0,0,.3)}
+    .page-hero p{font-size:clamp(.9rem,1.6vw,1rem);color:rgba(255,255,255,.55);font-style:italic;margin-top:12px;max-width:520px;line-height:1.7}
+
+    /* Navbar */
+    .navbar{position:sticky;top:0;z-index:1000;background:rgba(0,55,8,.97);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:2px solid var(--gold);display:flex;align-items:center;justify-content:space-between;padding:0 6%;height:62px;box-shadow:0 4px 20px rgba(0,0,0,.2)}
+    .nav-logo{font-family:'Abril Fatface',serif;font-size:1.25rem;color:#fff;text-decoration:none;letter-spacing:1px;display:flex;align-items:center;gap:8px;flex-shrink:0}
+    .nav-logo span{color:var(--gold)}
+    .nav-links{display:flex;align-items:center;gap:2px}
+    .nav-links a{font-family:'Oswald',sans-serif;color:rgba(255,255,255,.8);text-decoration:none;font-size:.85rem;letter-spacing:1.5px;text-transform:uppercase;padding:8px 13px;position:relative;transition:color .25s}
+    .nav-links a::after{content:'';position:absolute;bottom:2px;left:13px;right:13px;height:1px;background:var(--gold);transform:scaleX(0);transition:transform .25s var(--ease);transform-origin:left}
+    .nav-links a:hover,.nav-links a.active{color:#fff}
+    .nav-links a:hover::after,.nav-links a.active::after{transform:scaleX(1)}
+    .nav-right{display:flex;align-items:center;gap:10px}
+    .dark-btn{background:rgba(255,255,255,.09);border:1px solid rgba(255,255,255,.18);color:#fff;padding:5px 12px;border-radius:20px;cursor:pointer;font-family:'Oswald',sans-serif;font-size:.72rem;letter-spacing:1px;transition:background .25s,border-color .25s;white-space:nowrap}
+    .dark-btn:hover{background:rgba(201,151,58,.25);border-color:var(--gold)}
+    .hamburger{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:5px}
+    .hamburger span{display:block;width:24px;height:2px;background:#fff;border-radius:2px;transition:all .3s var(--ease)}
+    .hamburger.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+    .hamburger.open span:nth-child(2){opacity:0}
+    .hamburger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+    .mobile-menu{display:none;position:fixed;inset:0;z-index:900;background:rgba(0,35,0,.97);flex-direction:column;align-items:center;justify-content:center;gap:8px}
+    .mobile-menu.open{display:flex}
+    .mobile-menu a{font-family:'Abril Fatface',serif;font-size:clamp(1.8rem,6vw,2.8rem);color:#fff;text-decoration:none;letter-spacing:2px;padding:12px 0;border-bottom:1px solid rgba(201,151,58,.15);width:65%;text-align:center;transition:color .25s}
+    .mobile-menu a:hover{color:var(--gold)}
+
+    /* Main */
+    main{flex:1;padding:64px 6%;max-width:1200px;margin:0 auto;width:100%}
+    .s-label{font-family:'Oswald',sans-serif;font-size:.7rem;letter-spacing:5px;text-transform:uppercase;color:var(--green-mid);display:flex;align-items:center;gap:10px;margin-bottom:8px}
+    .s-label::before{content:'';display:inline-block;width:20px;height:1px;background:var(--green-mid)}
+    h1{font-family:'Abril Fatface',serif;font-size:clamp(1.9rem,4vw,2.8rem);color:var(--green);margin-bottom:18px;line-height:1.1}
+    h1 u{text-decoration:none;border-bottom:3px solid var(--gold);padding-bottom:2px}
+    p{margin-bottom:16px}
+    .div{display:flex;align-items:center;gap:16px;margin:56px 0}
+    .div::before,.div::after{content:'';flex:1;height:1px;background:var(--border)}
+    .div-icon{color:var(--gold);font-size:1.1rem;opacity:.7}
+    .wrap{margin:0 0 8px}.wrap::after{content:'';display:table;clear:both}
+    .float-right{float:right;max-width:42%;margin:4px 0 16px 28px;border-radius:var(--r);border:1px solid var(--border);height:auto;display:block;width:42%;transition:transform .4s var(--ease),box-shadow .4s var(--ease),filter .4s}
+    .float-left{float:left;max-width:42%;margin:4px 28px 16px 0;border-radius:var(--r);border:1px solid var(--border);height:auto;display:block;width:42%;transition:transform .4s var(--ease),box-shadow .4s var(--ease),filter .4s}
+    .float-right:hover,.float-left:hover{transform:scale(1.03);box-shadow:0 14px 36px rgba(0,0,0,.18);filter:saturate(1.1)}
+    .pq{border-left:3px solid var(--gold);padding:12px 20px;background:rgba(201,151,58,.07);border-radius:0 var(--r) var(--r) 0;margin:24px 0;font-style:italic;font-size:1.02rem;color:var(--green);line-height:1.65}
+
+    /* Education stat cards */
+    .edu-stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:16px;margin:36px 0}
+    .edu-stat{background:var(--white);border:1px solid var(--border);border-radius:var(--r);padding:22px 16px;text-align:center;position:relative;overflow:hidden;will-change:transform;backface-visibility:hidden;transition:transform .3s var(--ease),box-shadow .3s}
+    .edu-stat::before{content:'';position:absolute;top:0;left:0;width:100%;height:3px;background:var(--green-mid)}
+    .edu-stat:hover{transform:translateY(-4px) translateZ(0);box-shadow:0 8px 24px rgba(0,0,0,.08)}
+    .edu-stat-n{font-family:'Abril Fatface',serif;font-size:1.9rem;color:var(--green);line-height:1;margin-bottom:6px}
+    .edu-stat p{font-family:'Oswald',sans-serif;font-size:.7rem;letter-spacing:2px;text-transform:uppercase;color:var(--muted);margin:0}
+
+    /* Level cards */
+    .levels{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px;margin:32px 0}
+    .level-card{background:var(--white);border:1px solid var(--border);border-radius:var(--r);padding:24px 18px;border-bottom:3px solid var(--green-mid);will-change:transform;backface-visibility:hidden;transition:transform .3s var(--ease),box-shadow .3s}
+    .level-card:hover{transform:translateY(-4px) translateZ(0);box-shadow:0 8px 24px rgba(0,0,0,.08)}
+    .level-card h3{font-family:'Oswald',sans-serif;font-size:1rem;letter-spacing:1px;color:var(--green);margin-bottom:8px}
+    .level-card p{font-size:.88rem;color:var(--muted);margin:0;line-height:1.6}
+
+    /* Scroll reveal */
+    .rv,.rv-l,.rv-r{opacity:0;will-change:opacity,transform;backface-visibility:hidden;transition:opacity .72s var(--ease),transform .72s var(--ease)}
+    .rv{transform:translateY(22px) translateZ(0)}.rv-l{transform:translateX(-36px) translateZ(0)}.rv-r{transform:translateX(36px) translateZ(0)}
+    .rv.on,.rv-l.on,.rv-r.on{opacity:1;transform:none}
+    .d1{transition-delay:.1s}.d2{transition-delay:.2s}.d3{transition-delay:.3s}
+
+    /* Footer */
+    footer{background:var(--dark-bg);color:var(--dark-text);padding:60px 6% 28px;border-top:2px solid var(--gold)}
+    .f-inner{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:2fr 1fr 1fr;gap:48px}
+    .f-brand p{font-size:.9rem;color:var(--dark-muted);margin-top:12px;line-height:1.7}
+    .f-brand h3{font-family:'Abril Fatface',serif;font-size:1.4rem;color:#fff;letter-spacing:1px}
+    footer h3{font-family:'Oswald',sans-serif;font-size:.7rem;letter-spacing:4px;text-transform:uppercase;color:var(--gold);margin-bottom:18px}
+    footer ul{list-style:none}
+    footer ul li{margin-bottom:10px}
+    footer a{color:var(--dark-muted);text-decoration:none;font-family:'Lora',serif;font-size:.88rem;transition:color .25s,padding-left .25s;display:inline-block}
+    footer a:hover{color:var(--gold);padding-left:4px}
+    .f-contact p{font-size:.88rem;color:var(--dark-muted);margin-bottom:8px;display:flex;align-items:flex-start;gap:8px}
+    .f-contact i{color:var(--gold);margin-top:4px;font-size:.78rem;flex-shrink:0}
+    .socials{display:flex;gap:8px;margin-top:6px}
+    .socials a{width:34px;height:34px;border:1px solid rgba(201,151,58,.25);display:flex;align-items:center;justify-content:center;font-size:.82rem;border-radius:6px;transition:border-color .25s,color .25s,background .25s;padding:0}
+    .socials a:hover{border-color:var(--gold);color:black;background:var(--gold);padding-left:0}
+    .f-hr{border:none;border-top:1px solid rgba(255,255,255,.06);margin:32px 0 18px}
+    .f-bottom{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;font-family:'Oswald',sans-serif;font-size:.7rem;letter-spacing:1px;color:rgba(255,255,255,.22)}
+    .btt{width:32px;height:32px;border:1px solid rgba(201,151,58,.25);display:flex;align-items:center;justify-content:center;color:var(--dark-muted);border-radius:6px;text-decoration:none;font-size:.78rem;transition:border-color .25s,color .25s,background .25s}
+    .btt:hover{border-color:var(--gold);color:black;background:var(--gold);padding-left:0}
+
+    /* Dark mode */
+    body.dark{background:#0e160e;color:var(--dark-text)}
+    body.dark h1{color:#86efac}
+    body.dark .s-label{color:#86efac}.body.dark .s-label::before{background:#86efac}
+    body.dark .pq{background:rgba(134,239,172,.07);color:#86efac;border-color:#86efac}
+    body.dark .edu-stat,.body.dark .level-card{background:#111e11;border-color:#2a3a2a}
+    body.dark .edu-stat-n{color:#86efac}
+    body.dark .edu-stat::before{background:#86efac}
+    body.dark .level-card{background:#111e11;border-color:#2a3a2a;border-bottom-color:#86efac}
+    body.dark .level-card h3{color:#86efac}
+    body.dark img.float-left,body.dark img.float-right{border-color:#2a3a2a}
+    body.dark .div::before,body.dark .div::after{background:#2a3a2a}
+
+    @media(max-width:900px){.f-inner{grid-template-columns:1fr 1fr}.f-brand{grid-column:1/-1}}
+    @media(max-width:700px){
+      .hamburger{display:flex}.nav-links{display:none}
+      main{padding:40px 5%}
+      .float-left,.float-right{float:none;max-width:100%;margin:12px auto 18px;display:block}
+      .f-inner{grid-template-columns:1fr;gap:32px}
+      .edu-stats{grid-template-columns:1fr 1fr}
+      .levels{grid-template-columns:1fr}
+    }
+    @media(max-width:420px){.edu-stats{grid-template-columns:1fr}}
+  </style>
+</head>
+<body id="top">
+
+  <div id="prog"></div>
+
+  <div id="intro" class="intro-overlay">
+    <div class="intro-inner">
+      <span class="intro-icon">☪</span>
+      <h2>Education</h2>
+      <p>Knowledge · Progress · Future</p>
+    </div>
+  </div>
+
+  <div class="mobile-menu" id="mob">
+    <a href="index.html">Home</a>
+    <a href="Provinces.html">Provinces</a>
+    <a href="Education.html">Education</a>
+  </div>
+
+  <nav class="navbar">
+    <a class="nav-logo" href="index.html">☪ <span>PAKISTAN</span></a>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="Provinces.html">Provinces</a>
+      <a href="Education.html" class="active">Education</a>
+    </div>
+    <div class="nav-right">
+      <button class="dark-btn" id="dBtn">🌙 Dark</button>
+      <button class="hamburger" id="hbg"><span></span><span></span><span></span></button>
+    </div>
+  </nav>
+
+  <!-- Page hero -->
+  <div class="page-hero">
+    <div class="page-hero-content">
+      <p class="page-hero-label">Knowledge & Progress</p>
+      <h1>Education<br>in Pakistan</h1>
+      <p>From free and compulsory schooling to world-class universities — the journey of learning across a nation of 230 million.</p>
+    </div>
+  </div>
+
+  <main>
+
+    <!-- Intro -->
+    <div class="wrap">
+      <div class="s-label">Overview</div>
+      <h1><u>Education</u></h1>
+      <img src="Pics/State_emblem_of_Pakistan.svg.png" class="float-right" alt="State Emblem">
+      <p>Education in Pakistan is overseen by the Federal Ministry of Education and provincial governments. Article 25-A of the Constitution obligates the state to provide free and compulsory quality education to all children aged 5 to 16 years.</p>
+      <p>The education system is divided into six levels: preschool (age 3–5), primary (years 1–5), middle (years 6–8), high (years 9–10, SSC), intermediate (years 11–12, HSSC), and university programs. The Higher Education Commission (HEC), established in 2002, oversees all universities.</p>
+      <div class="pq">"The State shall provide free and compulsory education to all children of the age of five to sixteen years." — Article 25-A, Constitution of Pakistan</div>
+    </div>
+
+    <!-- Stats row -->
+    <div class="edu-stats">
+      <div class="edu-stat"><div class="edu-stat-n">82%</div><p>Literacy in Islamabad</p></div>
+      <div class="edu-stat"><div class="edu-stat-n">445K</div><p>University Graduates/Year</p></div>
+      <div class="edu-stat"><div class="edu-stat-n">25–30K</div><p>CS Graduates/Year</p></div>
+      <div class="edu-stat"><div class="edu-stat-n">22.8M</div><p>Children Out of School</p></div>
+      <div class="edu-stat"><div class="edu-stat-n">31%</div><p>Youth Unemployment</p></div>
+    </div>
+
+    <!-- Education levels overview -->
+    <div class="rv">
+      <div class="s-label">System Structure</div>
+      <h1><u>The Six Levels</u></h1>
+    </div>
+    <div class="levels">
+      <div class="level-card"><h3>Pre-School</h3><p>Ages 3–5. Play Group, Nursery, and Kindergarten stages.</p></div>
+      <div class="level-card"><h3>Primary</h3><p>Years 1–5. Foundation of core literacy and numeracy.</p></div>
+      <div class="level-card"><h3>Middle</h3><p>Years 6–8. Subject-based learning expands significantly.</p></div>
+      <div class="level-card"><h3>High (SSC)</h3><p>Years 9–10. Leads to the Secondary School Certificate.</p></div>
+      <div class="level-card"><h3>Intermediate (HSSC)</h3><p>Years 11–12. FSc, FA, ICS, or equivalent tracks.</p></div>
+      <div class="level-card"><h3>University</h3><p>Bachelor's (2 or 4 years), Master's, and PhD programs.</p></div>
+    </div>
+
+    <div class="div"><span class="div-icon">☪</span></div>
+
+    <!-- Primary Education -->
+    <div class="wrap">
+      <div class="s-label">Ages 5 – 10</div>
+      <h1><u>Primary Education</u></h1>
+      <img src="Pics/zlm02yb2qtcw84k8.jpg" class="float-left" alt="Primary Education">
+      <p>Only about 67.5% of Pakistani children complete primary school. Pre-school (ages 3–5) covers Play Group, Nursery, and Kindergarten. Students then progress through junior school (years 1–5), followed by middle school (years 6–8).</p>
+      <p>The eight commonly examined primary disciplines are Arts, Computer Studies & ICT, General Science, Modern Languages (Urdu, English), Mathematics, Religious Education, and Social Studies. Provincial languages — Punjabi, Sindhi, Pashto — may also be taught, as may foreign languages like Arabic, French, Chinese, and German.</p>
+      <div class="pq">A foundation for the nation: primary education shapes the literacy and numeracy skills of over 20 million children annually.</div>
+    </div>
+
+    <div class="div"><span class="div-icon">☪</span></div>
+
+    <!-- Secondary Education -->
+    <div class="wrap">
+      <div class="s-label">Years 9 – 12</div>
+      <h1><u>Secondary Education</u></h1>
+      <img src="Pics/college.jpg" class="float-right" alt="Secondary Education">
+      <p>Secondary education begins in year 9 and lasts four years. Students sit national examinations administered by regional Boards of Intermediate and Secondary Education (BISE). After year 10, successful students receive the Secondary School Certificate (Matric).</p>
+      <p>Curriculum includes electives (Biology, Chemistry, Physics, Computer Science) and compulsory subjects (Mathematics, English, Urdu, Islamiat, Pakistan Studies). Years 11–12 lead to the Higher Secondary School Certificate (HSSC / FSc / FA / ICS).</p>
+      <p>Alternatives include O/A Levels, IGCSE, AP programmes, and Technical Education pathways (Matric Tech, DAE) for vocational training.</p>
+    </div>
+
+    <div class="div"><span class="div-icon">☪</span></div>
+
+    <!-- Tertiary Education -->
+    <div class="wrap">
+      <div class="s-label">Higher Learning</div>
+      <h1><u>Tertiary Education</u></h1>
+      <img src="Pics/PU.jpeg" class="float-left" alt="Punjab University">
+      <p>As of 2007, 6% of Pakistanis (9% men, 3.5% women) were university graduates — with targets set to raise this to 15%. After HSSC, students may pursue professional degrees in engineering, medicine, law, pharmacy, nursing, veterinary sciences, or general degrees (BA, BSc, BCom, BBA).</p>
+      <p>Bachelor's degrees are offered as Pass (2 years) or Honours (4 years). Teacher education programs include Associate degrees, B.Ed (2–4 years), Master's and PhD qualifications. Pakistan produces about 445,000 university graduates and 25,000–30,000 computer science graduates per year.</p>
+      <div class="pq">Pakistan's Higher Education Commission, established in 2002, oversees all degree-awarding institutions — driving quality, research, and access to higher learning.</div>
+    </div>
+
+  </main>
+
+  <footer>
+    <div class="f-inner">
+      <div class="f-brand">
+        <h3>☪ PAKISTAN</h3>
+        <p>A tribute to Pakistan's rich heritage, diverse geography, and vibrant culture. Explore the land of the pure.</p>
+        <div class="socials" style="margin-top:20px">
+          <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+          <a href="#" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+          <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+        </div>
+      </div>
+      <div>
+        <h3>Pages</h3>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="Provinces.html">Provinces</a></li>
+          <li><a href="Education.html">Education</a></li>
+        </ul>
+      </div>
+      <div class="f-contact">
+        <h3>Contact</h3>
+        <p><i class="fas fa-envelope"></i> info@pakistan.com</p>
+        <p><i class="fas fa-phone"></i> +92 300 1234567</p>
+        <p><i class="fas fa-map-marker-alt"></i> Islamabad, Pakistan</p>
+      </div>
+    </div>
+    <hr class="f-hr">
+    <div class="f-bottom">
+      <span>© 2025 Abdul-Hannan · All Rights Reserved</span>
+      <a href="#top" class="btt" aria-label="Back to top"><i class="fas fa-arrow-up"></i></a>
+    </div>
+  </footer>
+  <script>
+    (function() {
+      var body = document.body;
+
+      /* Dark mode */
+      var dBtn = document.getElementById('dBtn');
+      function applyDark(on) {
+        body.classList.toggle('dark', on);
+        if (dBtn) dBtn.textContent = on ? '☀️ Light' : '🌙 Dark';
+      }
+      if (dBtn) {
+        dBtn.addEventListener('click', function() {
+          var on = !body.classList.contains('dark');
+          applyDark(on);
+          localStorage.setItem('pkDark', on ? '1' : '0');
+        });
+      }
+      applyDark(localStorage.getItem('pkDark') === '1');
+
+      /* Mobile menu */
+      var hbg = document.getElementById('hbg');
+      var mob = document.getElementById('mob');
+      if (hbg) {
+        hbg.addEventListener('click', function() {
+          var open = mob.classList.toggle('open');
+          hbg.classList.toggle('open', open);
+          body.style.overflow = open ? 'hidden' : '';
+        });
+      }
+      document.querySelectorAll('.mobile-menu a').forEach(function(a) {
+        a.addEventListener('click', function() {
+          if (mob) mob.classList.remove('open');
+          if (hbg) hbg.classList.remove('open');
+          body.style.overflow = '';
+        });
+      });
+
+      /* Intro overlay */
+      var intro = document.getElementById('intro');
+      if (intro) intro.addEventListener('animationend', function() { intro.style.display = 'none'; });
+
+      /* Scroll reveal */
+      var obs = new IntersectionObserver(function(entries) {
+        entries.forEach(function(e) {
+          if (e.isIntersecting) { e.target.classList.add('on'); obs.unobserve(e.target); }
+        });
+      }, { threshold: 0.12 });
+      document.querySelectorAll('.rv, .rv-l, .rv-r').forEach(function(el) { obs.observe(el); });
+
+      /* Reading progress bar */
+      var prog = document.getElementById('prog');
+      if (prog) {
+        window.addEventListener('scroll', function() {
+          var d = document.documentElement;
+          prog.style.width = Math.min(d.scrollTop / (d.scrollHeight - d.clientHeight) * 100, 100) + '%';
+        }, { passive: true });
+      }
+    })();
+  </script>
+</body>
+</html>

@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Pakistan — The Land of the Pure</title>
+  <link rel="icon" href="Favicon 2.png">
+  <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Lora:ital,wght@0,400;0,600;1,400&family=Oswald:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+  <style>
+    /* ====================================
+       DESIGN SYSTEM — ALL PAGES SHARE THIS
+       ==================================== */
+    :root {
+      --green:       #004d00;
+      --green-mid:   #1a6b2a;
+      --green-light: #2e7d32;
+      --gold:        #c9973a;
+      --cream:       #f8f5ee;
+      --white:       #ffffff;
+      --text:        #1e2a1e;
+      --muted:       #5a6a5a;
+      --border:      #d0d9d0;
+      --dark-bg:     #0d130d;
+      --dark-text:   #dde8dd;
+      --dark-muted:  #7a9a7a;
+      --r:           10px;
+      --ease:        cubic-bezier(0.4,0,0.2,1);
+    }
+    *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      font-family:'Lora',serif;font-size:18px;line-height:1.85;
+      background:var(--cream);color:var(--text);
+      min-height:100vh;display:flex;flex-direction:column;
+      -webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;
+      overflow-x:hidden;
+    }
+    /* Reading progress */
+    #prog{position:fixed;top:0;left:0;height:3px;background:var(--gold);width:0;z-index:9999}
+
+    /* ====================================  INTRO  ==================================== */
+    .intro-overlay{
+      position:fixed;inset:0;z-index:3000;
+      background:url('Pics/Islamabad.jpeg') center/cover no-repeat;
+      display:flex;align-items:center;justify-content:center;
+      animation:introFade 2.2s var(--ease) forwards;
+    }
+    .intro-overlay::before{
+      content:'';position:absolute;inset:0;
+      background:linear-gradient(135deg,rgba(0,60,0,.88),rgba(0,30,0,.75));
+    }
+    .intro-inner{position:relative;z-index:1;text-align:center}
+    .intro-icon{font-size:clamp(2rem,5vw,3.5rem);color:var(--gold);margin-bottom:10px;display:block}
+    .intro-inner h2{
+      font-family:'Abril Fatface',serif;
+      font-size:clamp(3rem,10vw,7rem);color:#fff;
+      letter-spacing:6px;text-shadow:0 4px 30px rgba(0,0,0,.4);
+    }
+    .intro-inner p{
+      font-family:'Oswald',sans-serif;font-size:clamp(.85rem,2vw,1.1rem);
+      color:rgba(255,255,255,.6);letter-spacing:7px;text-transform:uppercase;margin-top:10px;
+    }
+    @keyframes introFade{0%,70%{opacity:1}100%{opacity:0;pointer-events:none}}
+
+    /* ====================================  NAVBAR  ==================================== */
+    .navbar{
+      position:sticky;top:0;z-index:1000;
+      background:rgba(0,55,8,.97);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);
+      border-bottom:2px solid var(--gold);
+      display:flex;align-items:center;justify-content:space-between;
+      padding:0 6%;height:62px;
+      box-shadow:0 4px 20px rgba(0,0,0,.2);
+      transition:background .3s;
+    }
+    .nav-logo{
+      font-family:'Abril Fatface',serif;font-size:1.25rem;color:#fff;
+      text-decoration:none;letter-spacing:1px;display:flex;align-items:center;gap:8px;flex-shrink:0;
+    }
+    .nav-logo span{color:var(--gold)}
+    .nav-links{display:flex;align-items:center;gap:2px}
+    .nav-links a{
+      font-family:'Oswald',sans-serif;color:rgba(255,255,255,.8);text-decoration:none;
+      font-size:.85rem;letter-spacing:1.5px;text-transform:uppercase;
+      padding:8px 13px;position:relative;transition:color .25s;
+    }
+    .nav-links a::after{
+      content:'';position:absolute;bottom:2px;left:13px;right:13px;
+      height:1px;background:var(--gold);transform:scaleX(0);
+      transition:transform .25s var(--ease);transform-origin:left;
+    }
+    .nav-links a:hover,.nav-links a.active{color:#fff}
+    .nav-links a:hover::after,.nav-links a.active::after{transform:scaleX(1)}
+    .nav-right{display:flex;align-items:center;gap:10px}
+    .dark-btn{
+      background:rgba(255,255,255,.09);border:1px solid rgba(255,255,255,.18);
+      color:#fff;padding:5px 12px;border-radius:20px;cursor:pointer;
+      font-family:'Oswald',sans-serif;font-size:.72rem;letter-spacing:1px;
+      transition:background .25s,border-color .25s;white-space:nowrap;
+    }
+    .dark-btn:hover{background:rgba(201,151,58,.25);border-color:var(--gold)}
+    .hamburger{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:5px}
+    .hamburger span{display:block;width:24px;height:2px;background:#fff;border-radius:2px;transition:all .3s var(--ease)}
+    .hamburger.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+    .hamburger.open span:nth-child(2){opacity:0}
+    .hamburger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+
+    /* Mobile menu */
+    .mobile-menu{
+      display:none;position:fixed;inset:0;z-index:900;
+      background:rgba(0,35,0,.97);flex-direction:column;align-items:center;justify-content:center;gap:8px;
+    }
+    .mobile-menu.open{display:flex}
+    .mobile-menu a{
+      font-family:'Abril Fatface',serif;font-size:clamp(1.8rem,6vw,2.8rem);
+      color:#fff;text-decoration:none;letter-spacing:2px;padding:12px 0;
+      border-bottom:1px solid rgba(201,151,58,.15);width:65%;text-align:center;
+      transition:color .25s;
+    }
+    .mobile-menu a:hover{color:var(--gold)}
+
+    /* ====================================  HERO  ==================================== */
+    .hero{
+      position:relative;min-height:88vh;display:flex;align-items:flex-end;
+      background:url('Pics/Islamabad.jpeg') center/cover no-repeat;overflow:hidden;
+    }
+    .hero::before{
+      content:'';position:absolute;inset:0;
+      background:linear-gradient(to top,rgba(0,35,0,.95) 0%,rgba(0,55,0,.25) 55%,transparent 100%);
+    }
+    .hero-content{position:relative;z-index:2;padding:60px 6% 70px;max-width:860px}
+    .hero-label{
+      font-family:'Oswald',sans-serif;font-size:.72rem;letter-spacing:5px;
+      text-transform:uppercase;color:var(--gold);margin-bottom:14px;
+      display:flex;align-items:center;gap:10px;
+    }
+    .hero-label::before{content:'';display:inline-block;width:22px;height:1px;background:var(--gold)}
+    .hero h1{
+      font-family:'Abril Fatface',serif;
+      font-size:clamp(2.8rem,7.5vw,5.8rem);color:#fff;
+      line-height:1.0;margin-bottom:18px;
+      text-shadow:0 2px 20px rgba(0,0,0,.35);
+    }
+    .hero h1 em{font-style:normal;color:var(--gold)}
+    .hero-sub{
+      font-size:clamp(.9rem,1.8vw,1.05rem);color:rgba(255,255,255,.55);
+      font-style:italic;max-width:520px;line-height:1.7;
+    }
+    .hero-scroll{
+      position:absolute;bottom:22px;right:6%;z-index:2;
+      display:flex;flex-direction:column;align-items:center;gap:8px;
+      color:rgba(255,255,255,.35);font-family:'Oswald',sans-serif;
+      font-size:.65rem;letter-spacing:3px;
+    }
+    .scroll-line{width:1px;height:40px;background:linear-gradient(to bottom,transparent,var(--gold));animation:sp 2s ease-in-out infinite}
+    @keyframes sp{0%,100%{opacity:.3}50%{opacity:1}}
+
+    /* ====================================  MAIN  ==================================== */
+    main{flex:1;padding:64px 6%;max-width:1200px;margin:0 auto;width:100%}
+
+    /* Section label */
+    .s-label{
+      font-family:'Oswald',sans-serif;font-size:.7rem;letter-spacing:5px;
+      text-transform:uppercase;color:var(--green-mid);
+      display:flex;align-items:center;gap:10px;margin-bottom:8px;
+    }
+    .s-label::before{content:'';display:inline-block;width:20px;height:1px;background:var(--green-mid)}
+
+    h1{font-family:'Abril Fatface',serif;font-size:clamp(1.9rem,4vw,2.8rem);color:var(--green);margin-bottom:18px;line-height:1.1}
+    h1 u{text-decoration:none;border-bottom:3px solid var(--gold);padding-bottom:2px}
+    p{margin-bottom:16px}
+
+    /* Divider */
+    .div{display:flex;align-items:center;gap:16px;margin:56px 0}
+    .div::before,.div::after{content:'';flex:1;height:1px;background:var(--border)}
+    .div-icon{color:var(--gold);font-size:1.1rem;opacity:.7}
+
+    /* Float layout */
+    .wrap{margin:0 0 8px}
+    .wrap::after{content:'';display:table;clear:both}
+    .float-right{float:right;max-width:42%;margin:4px 0 16px 28px;border-radius:var(--r);border:1px solid var(--border);height:auto;display:block;width:42%;transition:transform .4s var(--ease),box-shadow .4s var(--ease),filter .4s}
+    .float-left{float:left;max-width:42%;margin:4px 28px 16px 0;border-radius:var(--r);border:1px solid var(--border);height:auto;display:block;width:42%;transition:transform .4s var(--ease),box-shadow .4s var(--ease),filter .4s}
+    .float-right:hover,.float-left:hover{transform:scale(1.03);box-shadow:0 14px 36px rgba(0,0,0,.18);filter:saturate(1.1)}
+    video.float-right,video.float-left{background:#000}
+
+    /* Pullquote */
+    .pq{border-left:3px solid var(--gold);padding:12px 20px;background:rgba(201,151,58,.07);border-radius:0 var(--r) var(--r) 0;margin:24px 0;font-style:italic;font-size:1.02rem;color:var(--green);line-height:1.65}
+
+    /* Fact cards */
+    .facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:16px;margin:32px 0}
+    .fact{background:var(--white);border:1px solid var(--border);border-radius:var(--r);padding:22px 16px;text-align:center;will-change:transform;backface-visibility:hidden;transition:transform .3s var(--ease),box-shadow .3s}
+    .fact:hover{transform:translateY(-4px) translateZ(0);box-shadow:0 8px 24px rgba(0,0,0,.08)}
+    .fact-n{font-family:'Abril Fatface',serif;font-size:2rem;color:var(--green);line-height:1;margin-bottom:6px}
+    .fact p{font-family:'Oswald',sans-serif;font-size:.7rem;letter-spacing:2px;text-transform:uppercase;color:var(--muted);margin:0}
+
+    /* Table */
+    .tbl-wrap{overflow-x:auto;margin:24px 0;border-radius:var(--r);border:1px solid var(--border)}
+    table{border-collapse:collapse;width:100%;min-width:700px}
+    th{font-family:'Oswald',sans-serif;font-size:.82rem;letter-spacing:2px;text-transform:uppercase;background:var(--green);color:#fff;padding:14px 16px;text-align:left}
+    td{border-bottom:1px solid var(--border);padding:14px 16px;background:var(--white);vertical-align:top;line-height:1.75}
+    tr:last-child td{border-bottom:none}
+    tr:nth-child(even) td{background:#f4f8f4}
+    .urdu{font-size:19px;line-height:2;text-align:right;direction:rtl}
+
+    /* ====================================  SCROLL REVEAL  ==================================== */
+    .rv,.rv-l,.rv-r{
+      opacity:0;will-change:opacity,transform;backface-visibility:hidden;
+      transition:opacity .72s var(--ease),transform .72s var(--ease);
+    }
+    .rv{transform:translateY(22px) translateZ(0)}
+    .rv-l{transform:translateX(-36px) translateZ(0)}
+    .rv-r{transform:translateX(36px) translateZ(0)}
+    .rv.on,.rv-l.on,.rv-r.on{opacity:1;transform:none}
+    .d1{transition-delay:.1s}.d2{transition-delay:.2s}.d3{transition-delay:.3s}
+
+    /* ====================================  FOOTER  ==================================== */
+    footer{background:var(--dark-bg);color:var(--dark-text);padding:60px 6% 28px;border-top:2px solid var(--gold)}
+    .f-inner{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:2fr 1fr 1fr;gap:48px}
+    .f-brand p{font-size:.9rem;color:var(--dark-muted);margin-top:12px;line-height:1.7}
+    .f-brand h3{font-family:'Abril Fatface',serif;font-size:1.4rem;color:#fff;letter-spacing:1px}
+    footer h3{font-family:'Oswald',sans-serif;font-size:.7rem;letter-spacing:4px;text-transform:uppercase;color:var(--gold);margin-bottom:18px}
+    footer ul{list-style:none}
+    footer ul li{margin-bottom:10px}
+    footer a{color:var(--dark-muted);text-decoration:none;font-family:'Lora',serif;font-size:.88rem;transition:color .25s,padding-left .25s;display:inline-block}
+    footer a:hover{color:var(--gold);padding-left:4px}
+    .f-contact p{font-size:.88rem;color:var(--dark-muted);margin-bottom:8px;display:flex;align-items:flex-start;gap:8px}
+    .f-contact i{color:var(--gold);margin-top:4px;font-size:.78rem;flex-shrink:0}
+    .socials{display:flex;gap:8px;margin-top:6px}
+    .socials a{width:34px;height:34px;border:1px solid rgba(201,151,58,.25);display:flex;align-items:center;justify-content:center;font-size:.82rem;border-radius:6px;transition:border-color .25s,color .25s,background .25s;padding:0}
+    .socials a:hover{border-color:var(--gold);color:black;background:var(--gold);padding-left:0}
+    .f-hr{border:none;border-top:1px solid rgba(255,255,255,.06);margin:32px 0 18px}
+    .f-bottom{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;font-family:'Oswald',sans-serif;font-size:.7rem;letter-spacing:1px;color:rgba(255,255,255,.22)}
+    .btt{width:32px;height:32px;border:1px solid rgba(201,151,58,.25);display:flex;align-items:center;justify-content:center;color:var(--dark-muted);border-radius:6px;text-decoration:none;font-size:.78rem;transition:border-color .25s,color .25s,background .25s}
+    .btt:hover{border-color:var(--gold);color:black;background:var(--gold);padding-left:0}
+
+    /* ====================================  DARK MODE  ==================================== */
+    body.dark{background:#0e160e;color:var(--dark-text)}
+    body.dark .hero::before{background:linear-gradient(to top,rgba(0,20,0,.97) 0%,rgba(0,40,0,.3) 55%,transparent 100%)}
+    body.dark h1{color:#86efac}
+    body.dark .s-label{color:#86efac}
+    body.dark .s-label::before{background:#86efac}
+    body.dark .pq{background:rgba(134,239,172,.07);color:#86efac;border-color:#86efac}
+    body.dark .fact{background:#111e11;border-color:#2a3a2a}
+    body.dark .fact-n{color:#86efac}
+    body.dark td{background:#111e11;color:var(--dark-text);border-color:#2a3a2a}
+    body.dark tr:nth-child(even) td{background:#162016}
+    body.dark th{background:#0a3a0a}
+    body.dark img.float-left,body.dark img.float-right{border-color:#2a3a2a}
+    body.dark .div::before,body.dark .div::after{background:#2a3a2a}
+    body.dark .tbl-wrap{border-color:#2a3a2a}
+
+    /* ====================================  RESPONSIVE  ==================================== */
+    @media(max-width:900px){.f-inner{grid-template-columns:1fr 1fr}.f-brand{grid-column:1/-1}}
+    @media(max-width:700px){
+      .hamburger{display:flex}.nav-links{display:none}
+      main{padding:40px 5%}.hero-content{padding:40px 5% 50px}.hero{min-height:72vh}
+      .float-left,.float-right{float:none;max-width:100%;margin:12px auto 18px;display:block}
+      .facts{grid-template-columns:1fr 1fr}.f-inner{grid-template-columns:1fr;gap:32px}
+    }
+    @media(max-width:420px){.facts{grid-template-columns:1fr}}
+  </style>
+</head>
+<body id="top">
+
+  <div id="prog"></div>
+
+  <!-- Intro -->
+  <div id="intro" class="intro-overlay">
+    <div class="intro-inner">
+      <span class="intro-icon">☪</span>
+      <h2>PAKISTAN</h2>
+      <p>Land of the Pure</p>
+    </div>
+  </div>
+
+  <!-- Mobile menu -->
+  <div class="mobile-menu" id="mob">
+    <a href="index.html">Home</a>
+    <a href="Provinces.html">Provinces</a>
+    <a href="Education.html">Education</a>
+  </div>
+
+  <!-- Navbar -->
+  <nav class="navbar">
+    <a class="nav-logo" href="index.html">☪ <span>PAKISTAN</span></a>
+    <div class="nav-links">
+      <a href="index.html" class="active">Home</a>
+      <a href="Provinces.html">Provinces</a>
+      <a href="Education.html">Education</a>
+    </div>
+    <div class="nav-right">
+      <button class="dark-btn" id="dBtn">🌙 Dark</button>
+      <button class="hamburger" id="hbg"><span></span><span></span><span></span></button>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="hero-content">
+      <p class="hero-label">South Asia · Since 1947</p>
+      <h1>The Land of<br><em>the Pure</em></h1>
+      <p class="hero-sub">From the peaks of Karakoram to the plains of the Indus — a nation of breathtaking diversity, ancient civilizations, and a vibrant modern identity.</p>
+    </div>
+    <div class="hero-scroll"><div class="scroll-line"></div><span>SCROLL</span></div>
+  </section>
+
+  <main>
+
+    <!-- Quick facts -->
+    <div class="facts">
+      <div class="fact"><div class="fact-n">881K</div><p>km² Area</p></div>
+      <div class="fact"><div class="fact-n">230M+</div><p>Population</p></div>
+      <div class="fact"><div class="fact-n">1947</div><p>Independence</p></div>
+      <div class="fact"><div class="fact-n">K2</div><p>2nd Highest Peak</p></div>
+      <div class="fact"><div class="fact-n">6</div><p>Neighbours</p></div>
+    </div>
+
+    <div class="div"><span class="div-icon">☪</span></div>
+
+    <!-- About -->
+    <div class="wrap">
+      <div class="s-label">Overview</div>
+      <h1><u>About Pakistan</u></h1>
+      <img src="Pics/State_emblem_of_Pakistan.svg.png" class="float-right" alt="State Emblem of Pakistan">
+      <p>Pakistan, officially the Islamic Republic of Pakistan, is a country in South Asia. It is the world's fifth-most populous country, with over 230 million people — the second-largest Muslim-majority country after Indonesia.</p>
+      <p>Pakistan is bordered by India to the east, Afghanistan to the northwest, Iran to the west, and China to the northeast. To the south, it has a coastline along the Arabian Sea and the Gulf of Oman.</p>
+      <div class="pq">"A land of stunning contrasts — from the K2 summit to the Indus delta, from ancient Mohenjo-daro to a bold modern identity."</div>
+      <p>Pakistan's terrain ranges from the towering Karakoram and Himalayan ranges in the north to fertile Indus plains and the vast Thar Desert in the south. The Indus River — the country's lifeline — flows from the Himalayas to the Arabian Sea.</p>
+    </div>
+
+    <div class="div"><span class="div-icon">☪</span></div>
+
+    <!-- Map -->
+    <div class="wrap">
+      <div class="s-label">Geography</div>
+      <h1><u>Map</u></h1>
+      <img src="Pics/Map.png" alt="Pakistan Map" class="float-right" loading="lazy">
+      <p>Pakistan is located in South Asia, covering about 881,913 km² — the 33rd largest country in the world by land area. It is divided into four provinces: Punjab, Sindh, Khyber Pakhtunkhwa, and Balochistan.</p>
+      <p>The federal capital is Islamabad. Major cities include Karachi, Lahore, Faisalabad, Rawalpindi, and Peshawar. Pakistan also has two autonomous regions: Gilgit-Baltistan and Azad Jammu and Kashmir.</p>
+      <p>Pakistan shares a 2,670 km border with Afghanistan, 3,323 km with India, 959 km with Iran, 523 km with China, and a 1,046 km coastline along the Arabian Sea.</p>
+    </div>
+
+    <div class="div"><span class="div-icon">☪</span></div>
+
+    <!-- Flag -->
+    <div class="wrap">
+      <div class="s-label">National Symbol</div>
+      <h1><u>Flag</u></h1>
+      <img src="Pics/pk-flag.jpg" alt="Flag of Pakistan" class="float-left" loading="lazy">
+      <p>The flag of Pakistan features a green field with a white crescent and star, and a white vertical stripe at the hoist. Adopted on 11 August 1947, it was designed to represent the nation's Islamic identity and the diversity of its people.</p>
+      <p><strong>Green</strong> symbolizes prosperity and the Muslim majority. The <strong>white stripe</strong> represents all religious minorities. The <strong>crescent</strong> signifies progress, and the <strong>star</strong> denotes knowledge and light.</p>
+      <p>The flag is flown on Republic Day, Independence Day, Defence Day, and major national occasions — a constant source of pride and patriotism for Pakistanis.</p>
+    </div>
+
+    <div class="div"><span class="div-icon">☪</span></div>
+
+    <!-- National Anthem -->
+    <div class="wrap">
+      <div class="s-label">National Identity</div>
+      <h1><u>National Anthem</u></h1>
+      <video controls class="float-right" src="Pakistan%20National%20Anthem.mp4" poster="Pics/Vid%20pic.jpg" style="border-radius:var(--r)" preload="metadata">
+        <source src="Pakistan%20National%20Anthem.mp4" type="video/mp4">
+        <source src="anthem.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+      <p>Pakistan's national anthem — <em>Qaumi Taranah</em> (قومی ترانہ) — is also known as <em>Pak Sarzamin</em> ("Thy Sacred Land"). Lyrics by Hafeez Jalandhari (1952), music by Ahmed G. Chagla (1949), officially adopted 16 August 1954.</p>
+      <p>The three-stanza anthem praises the sacred land, the brotherhood of the people, and the crescent and star as guides to progress and perfection.</p>
+
+      <div class="tbl-wrap">
+        <table>
+          <tr><th>Urdu Script</th><th>Roman Script</th><th>English Translation</th></tr>
+          <tr>
+            <td class="urdu">پاک سرزمین شاد باد<br>کشورِ حسین شاد باد<br>تو نشانِ عزمِ عالی شان<br>ارضِ پاکستان!<br>مرکزِ یقین شاد باد<br><br>پاک سرزمین کا نظام<br>قوتِ اخوتِ عوام<br>قوم ، ملک ، سلطنت<br>پائندہ تابندہ باد!<br>شاد باد منزلِ مراد<br><br>پرچمِ ستارہ و ہلال<br>رہبرِ ترقی و کمال<br>ترجمانِ ماضی شانِ حال<br>جانِ استقبال!<br>سایۂ خدائے ذوالجلال</td>
+            <td>Pak sarzamin shad bad<br>Kishwar-e-Haseen shad bad<br>Tu nishan-e-azm-e-ali shan<br>Arz-e-Pakistan!<br>Markaz-e-yaqin shad bad<br><br>Pak sarzamin ka nizam<br>Quwat-e-ukhuwat-e-awam<br>Qaum, mulk, saltanat<br>Painda tabinda bad!<br>Shad bad manzil-e-murad<br><br>Parcham-e-sitara-o-hilal<br>Rahbar-e-tarraqi-o-kamal<br>Tarjuman-e-mazi shan-e-hal<br>Jan-e-istiqbal!<br>Sayyai Khuda-e-zuljalal</td>
+            <td>Blessed be the sacred land<br>Happy be the bounteous realm<br>Symbol of high resolve<br>Land of Pakistan!<br>Blessed be thou citadel of faith<br><br>The order of this sacred land<br>Is the might of the brotherhood of the people<br>May the nation, the country, and the state<br>Shine in glory everlasting!<br>Blessed be the goal of our ambition<br><br>This flag of the crescent and star<br>Leads the way to progress and perfection<br>Interpreter of our past, glory of our present<br>Inspiration of our future!<br>Symbol of Almighty's protection</td>
+          </tr>
+        </table>
+      </div>
+    </div>
+
+    <div class="div"><span class="div-icon">☪</span></div>
+
+    <!-- Nuclear -->
+    <div class="wrap">
+      <div class="s-label">Science &amp; Defence</div>
+      <h1><u>Nuclear Power</u></h1>
+      <img src="Pics/Nuclear.jpg" alt="Nuclear Program" class="float-left" loading="lazy">
+      <p>Pakistan is the first Muslim-majority country to construct and operate civil nuclear power plants. The Pakistan Atomic Energy Commission (PAEC) is solely responsible for these facilities.</p>
+      <p>Pakistan began its nuclear programme in January 1972 under Prime Minister Zulfikar Ali Bhutto. Today, Pakistan has five nuclear power plants (1,430 MW total) with three more under construction (3,930 MW planned).</p>
+      <div class="pq">"Pakistan's nuclear programme stands as a milestone in scientific achievement for the Muslim world."</div>
+    </div>
+
+  </main>
+
+  <footer>
+    <div class="f-inner">
+      <div class="f-brand">
+        <h3>☪ PAKISTAN</h3>
+        <p>A tribute to Pakistan's rich heritage, diverse geography, and vibrant culture. Explore the land of the pure.</p>
+        <div class="socials" style="margin-top:20px">
+          <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+          <a href="#" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+          <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+        </div>
+      </div>
+      <div>
+        <h3>Pages</h3>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="Provinces.html">Provinces</a></li>
+          <li><a href="Education.html">Education</a></li>
+        </ul>
+      </div>
+      <div class="f-contact">
+        <h3>Contact</h3>
+        <p><i class="fas fa-envelope"></i> info@pakistan.com</p>
+        <p><i class="fas fa-phone"></i> +92 300 1234567</p>
+        <p><i class="fas fa-map-marker-alt"></i> Islamabad, Pakistan</p>
+      </div>
+    </div>
+    <hr class="f-hr">
+    <div class="f-bottom">
+      <span>© 2025 Abdul-Hannan · All Rights Reserved</span>
+      <a href="#top" class="btt" aria-label="Back to top"><i class="fas fa-arrow-up"></i></a>
+    </div>
+  </footer>
+  <script>
+    (function() {
+      var body = document.body;
+
+      /* Dark mode */
+      var dBtn = document.getElementById('dBtn');
+      function applyDark(on) {
+        body.classList.toggle('dark', on);
+        if (dBtn) dBtn.textContent = on ? '☀️ Light' : '🌙 Dark';
+      }
+      if (dBtn) {
+        dBtn.addEventListener('click', function() {
+          var on = !body.classList.contains('dark');
+          applyDark(on);
+          localStorage.setItem('pkDark', on ? '1' : '0');
+        });
+      }
+      applyDark(localStorage.getItem('pkDark') === '1');
+
+      /* Mobile menu */
+      var hbg = document.getElementById('hbg');
+      var mob = document.getElementById('mob');
+      if (hbg) {
+        hbg.addEventListener('click', function() {
+          var open = mob.classList.toggle('open');
+          hbg.classList.toggle('open', open);
+          body.style.overflow = open ? 'hidden' : '';
+        });
+      }
+      document.querySelectorAll('.mobile-menu a').forEach(function(a) {
+        a.addEventListener('click', function() {
+          if (mob) mob.classList.remove('open');
+          if (hbg) hbg.classList.remove('open');
+          body.style.overflow = '';
+        });
+      });
+
+      /* Intro overlay */
+      var intro = document.getElementById('intro');
+      if (intro) intro.addEventListener('animationend', function() { intro.style.display = 'none'; });
+
+      /* Scroll reveal */
+      var obs = new IntersectionObserver(function(entries) {
+        entries.forEach(function(e) {
+          if (e.isIntersecting) { e.target.classList.add('on'); obs.unobserve(e.target); }
+        });
+      }, { threshold: 0.12 });
+      document.querySelectorAll('.rv, .rv-l, .rv-r').forEach(function(el) { obs.observe(el); });
+
+      /* Reading progress bar */
+      var prog = document.getElementById('prog');
+      if (prog) {
+        window.addEventListener('scroll', function() {
+          var d = document.documentElement;
+          prog.style.width = Math.min(d.scrollTop / (d.scrollHeight - d.clientHeight) * 100, 100) + '%';
+        }, { passive: true });
+      }
+    })();
+  </script>
+</body>
+</html>
