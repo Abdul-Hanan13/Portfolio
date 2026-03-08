@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hangine — Custom Bike Builder</title>
+  <link rel="shortcut icon" href="Assets/Favicon.svg" type="image/x-icon">
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;600;700&family=Barlow:ital,wght@0,300;0,400;0,600;1,300&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="Bike Website.css">
+</head>
+<body>
+
+  <!-- Custom Cursor -->
+  <div class="cursor" id="cursor"></div>
+  <div class="cursor-follower" id="cursorFollower"></div>
+
+  <!-- Page Loader -->
+  <div class="loader" id="loader">
+    <div class="loader-inner">
+      <div class="loader-logo">H<span>A</span>NGINE</div>
+      <div class="loader-bar"><div class="loader-fill"></div></div>
+    </div>
+  </div>
+
+  <!-- Mobile Menu -->
+  <div class="mobile-menu" id="mobileMenu">
+    <button class="mobile-close" onclick="closeMenu()" aria-label="Close menu">
+      <i class="fas fa-times"></i>
+    </button>
+    <nav class="mobile-nav">
+      <a href="#"            onclick="closeMenu()"><span>01</span>Home</a>
+      <a href="#works"       onclick="closeMenu()"><span>02</span>Works</a>
+      <a href="#services"    onclick="closeMenu()"><span>03</span>Services</a>
+      <a href="#about"       onclick="closeMenu()"><span>04</span>About Us</a>
+      <a href="#testimonial" onclick="closeMenu()"><span>05</span>Testimonial</a>
+      <a href="#contact"     onclick="closeMenu()"><span>06</span>Contact</a>
+    </nav>
+    <button class="mobile-cta" onclick="closeMenu()">LET'S TALK</button>
+    <div class="mobile-socials">
+      <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+      <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+      <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+    </div>
+  </div>
+
+  <div class="site-wrapper">
+
+    <!-- ===== HERO ===== -->
+    <div class="main" id="top">
+      <nav id="navbar">
+        <div class="logo">
+          <img src="Assets/Favicon.svg" alt="Logo">
+          <b>HANGINE</b>
+        </div>
+        <div class="nav-buttons">
+          <a href="#">Home</a>
+          <a href="#works">Works</a>
+          <a href="#services">Services</a>
+          <a href="#about">About Us</a>
+          <a href="#testimonial">Testimonial</a>
+          <a href="#contact">Contact</a>
+        </div>
+        <button class="nav-last-button"><b>LET'S TALK</b></button>
+        <button class="hamburger" id="hamburger" aria-label="Open menu" onclick="toggleMenu()">
+          <span></span><span></span><span></span>
+        </button>
+      </nav>
+
+      <div class="intro-text">
+        <div class="music">
+          <div class="line"></div><div class="line"></div><div class="line"></div>
+          <div class="line"></div><div class="line"></div><div class="line"></div>
+          <div class="line"></div><div class="line"></div><div class="line"></div>
+          <div class="line"></div><div class="line"></div><div class="line"></div>
+          <div class="line"></div>
+        </div>
+        <p class="hero-tag reveal-up"><b>Custom Bike Builder</b></p>
+        <h1 class="reveal-up delay-1">Make Your Bike<br>Truly <span>Yours</span></h1>
+        <p class="hero-sub reveal-up delay-2">Precision craftsmanship meets fearless design.</p>
+        <div class="hero-btns reveal-up delay-3">
+          <button class="btn-primary" onclick="document.getElementById('works').scrollIntoView({behavior:'smooth'})">
+            <span>CHECK OUR WORKS</span> <i class="fas fa-arrow-right"></i>
+          </button>
+          <a href="#about" class="btn-ghost">OUR STORY</a>
+        </div>
+      </div>
+
+      <div class="scroll-indicator">
+        <div class="scroll-line"></div>
+        <span>SCROLL</span>
+      </div>
+    </div>
+
+    <!-- ===== TICKER ===== -->
+    <div class="ticker-wrap">
+      <div class="ticker">
+        <span>CUSTOM BUILD</span><span class="dot">◆</span>
+        <span>ENGINE MODS</span><span class="dot">◆</span>
+        <span>EXHAUST SYSTEMS</span><span class="dot">◆</span>
+        <span>CARBON FIBER</span><span class="dot">◆</span>
+        <span>PAINT &amp; WRAP</span><span class="dot">◆</span>
+        <span>SUSPENSION TUNING</span><span class="dot">◆</span>
+        <span>CUSTOM BUILD</span><span class="dot">◆</span>
+        <span>ENGINE MODS</span><span class="dot">◆</span>
+        <span>EXHAUST SYSTEMS</span><span class="dot">◆</span>
+        <span>CARBON FIBER</span><span class="dot">◆</span>
+        <span>PAINT &amp; WRAP</span><span class="dot">◆</span>
+        <span>SUSPENSION TUNING</span><span class="dot">◆</span>
+      </div>
+    </div>
+
+    <!-- ===== ABOUT ===== -->
+    <div class="second-main" id="about">
+      <div class="text">
+        <div class="contents fade-in-left">
+          <p class="section-tag">Custom Bike Builder</p>
+          <h1>HOW IT ALL<br><em>STARTED</em></h1>
+          <p>
+            It all started with a passion for bikes and a love of customization.
+            We wanted to create a space where riders could find the best products and services
+            to modify their bikes — as well as inspiration and advice from fellow riders.
+            A community built on freedom, expression, and the open road.
+          </p>
+          <a href="#top" class="read-more">Read More <i class="fas fa-long-arrow-alt-right"></i></a>
+        </div>
+        <div class="textimg fade-in-right">
+          <div class="img-frame">
+            <img src="Pictures/custom-bike-builder-story-video-thumb.jpg" alt="Our Story">
+          </div>
+        </div>
+      </div>
+      <img src="Assets/custom-bike-builder-story-section-bg.svg" alt="" class="bg-deco" aria-hidden="true">
+    </div>
+
+    <!-- ===== STATS ===== -->
+    <section class="stats-section">
+      <div class="stats-container">
+        <div class="stat fade-in">
+          <h2 class="counter" data-target="1980">0</h2>
+          <div class="stat-bar"></div>
+          <p>Founded</p>
+        </div>
+        <div class="stat fade-in delay-1">
+          <h2 class="counter" data-target="900">0</h2>
+          <div class="stat-bar"></div>
+          <p>Projects</p>
+        </div>
+        <div class="stat fade-in delay-2">
+          <h2 class="counter" data-target="450">0</h2>
+          <div class="stat-bar"></div>
+          <p>Clients</p>
+        </div>
+        <div class="stat fade-in delay-3">
+          <h2 class="counter" data-target="45">0</h2>
+          <div class="stat-bar"></div>
+          <p>Awards</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== WORKS ===== -->
+    <section class="works-section" id="works">
+      <div class="works-header fade-in">
+        <p class="section-tag">OUR LATEST WORKS</p>
+        <h2>Check Out Our<br><em>Custom Bike Projects</em></h2>
+      </div>
+      <div class="works-gallery">
+        <div class="work-item fade-in">
+          <img src="Pictures/work1.jpg" alt="Yamaha R1 Custom">
+          <div class="overlay">
+            <span class="work-num">01</span>
+            <div>
+              <h3>Yamaha R1 Custom</h3>
+              <p>Engine: 998cc · Exhaust: Akrapovic</p>
+            </div>
+            <i class="fas fa-arrow-right overlay-arrow"></i>
+          </div>
+        </div>
+        <div class="work-item fade-in delay-1">
+          <img src="Pictures/work2.jpg" alt="Harley Davidson Street Glide">
+          <div class="overlay">
+            <span class="work-num">02</span>
+            <div>
+              <h3>Harley Davidson Street Glide</h3>
+              <p>Engine: 1745cc · Handlebars: Ape Hanger</p>
+            </div>
+            <i class="fas fa-arrow-right overlay-arrow"></i>
+          </div>
+        </div>
+        <div class="work-item fade-in delay-2">
+          <img src="Pictures/work3.jpg" alt="Kawasaki Ninja ZX-10R">
+          <div class="overlay">
+            <span class="work-num">03</span>
+            <div>
+              <h3>Kawasaki Ninja ZX-10R</h3>
+              <p>Engine: 998cc · Fairings: Carbon Fiber</p>
+            </div>
+            <i class="fas fa-arrow-right overlay-arrow"></i>
+          </div>
+        </div>
+      </div>
+      <div class="works-cta fade-in">
+        <a href="#" class="btn-primary"><span>VIEW ALL PROJECTS</span> <i class="fas fa-arrow-right"></i></a>
+      </div>
+    </section>
+
+    <!-- ===== SERVICES ===== -->
+    <section class="services-section" id="services">
+      <div class="services-header fade-in">
+        <p class="section-tag">WHAT WE DO</p>
+        <h2>Our <em>Services</em></h2>
+      </div>
+      <div class="services-grid">
+        <div class="service-card fade-in">
+          <div class="service-icon"><i class="fas fa-cogs"></i></div>
+          <h3>Engine Mods</h3>
+          <p>Full engine builds, tune-ups, and performance upgrades for maximum power output.</p>
+        </div>
+        <div class="service-card fade-in delay-1">
+          <div class="service-icon"><i class="fas fa-paint-brush"></i></div>
+          <h3>Custom Paint &amp; Wrap</h3>
+          <p>One-of-a-kind finishes and vinyl wraps that make your bike unmistakable.</p>
+        </div>
+        <div class="service-card fade-in delay-2">
+          <div class="service-icon"><i class="fas fa-tools"></i></div>
+          <h3>Full Custom Build</h3>
+          <p>From concept to completion — we build your dream machine from the ground up.</p>
+        </div>
+        <div class="service-card fade-in delay-3">
+          <div class="service-icon"><i class="fas fa-wrench"></i></div>
+          <h3>Maintenance</h3>
+          <p>Regular servicing and expert repairs to keep your ride performing at its best.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== BUILD CTA ===== -->
+    <section class="build-bike">
+      <div class="build-overlay"></div>
+      <div class="build-content">
+        <p class="section-tag">READY TO RIDE?</p>
+        <h2>Let's Build Your<br><em>Dream Bike</em></h2>
+        <p>Custom designs, unique modifications, and expert craftsmanship to bring your vision to life.</p>
+        <a href="#contact" class="btn-primary"><span>LET'S TALK</span> <i class="fas fa-arrow-right"></i></a>
+      </div>
+    </section>
+
+    <!-- ===== FOOTER ===== -->
+    <footer class="site-footer" id="contact">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <div class="logo">
+            <img src="Assets/Favicon.svg" alt="Logo">
+            <b>HANGINE</b>
+          </div>
+          <p>Built for riders.<br>Driven by passion.</p>
+        </div>
+        <div class="footer-links">
+          <div class="footer-section">
+            <h3>Contact Info</h3>
+            <p><i class="fas fa-map-marker-alt"></i> 123 Fifth Ave, New York, NY 12004</p>
+            <p><i class="fas fa-phone"></i> +1 123 456 78 90</p>
+            <p><i class="fas fa-envelope"></i> email@example.com</p>
+          </div>
+          <div class="footer-section">
+            <h3>Services</h3>
+            <ul>
+              <li><a href="#">Bike Modifying</a></li>
+              <li><a href="#">Maintenance</a></li>
+              <li><a href="#">Accessories</a></li>
+              <li><a href="#">Custom Build</a></li>
+            </ul>
+          </div>
+          <div class="footer-section">
+            <h3>Newsletter</h3>
+            <div class="newsletter-form">
+              <input type="email" placeholder="Your email address">
+              <button type="button" aria-label="Subscribe">→</button>
+            </div>
+            <div class="social-icons">
+              <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+              <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+              <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+              <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2025 Hangine Bike Modification. All rights reserved.</p>
+        <a href="#top" class="back-to-top" aria-label="Back to top"><i class="fas fa-arrow-up"></i></a>
+      </div>
+    </footer>
+
+  </div><!-- .site-wrapper -->
+
+  <script>
+    /* =====================
+       PAGE LOADER
+       ===================== */
+    window.addEventListener('load', () => {
+      setTimeout(() => document.getElementById('loader').classList.add('loaded'), 1100);
+    });
+
+    /* =====================
+       CUSTOM CURSOR
+       ===================== */
+    const cursor   = document.getElementById('cursor');
+    const follower = document.getElementById('cursorFollower');
+    let mX = 0, mY = 0, fX = 0, fY = 0;
+
+    document.addEventListener('mousemove', e => {
+      mX = e.clientX; mY = e.clientY;
+      cursor.style.transform = `translate(${mX - 4}px, ${mY - 4}px)`;
+    });
+
+    (function animateFollower() {
+      fX += (mX - fX) * 0.1;
+      fY += (mY - fY) * 0.1;
+      follower.style.transform = `translate(${fX - 18}px, ${fY - 18}px)`;
+      requestAnimationFrame(animateFollower);
+    })();
+
+    document.querySelectorAll('a, button, .work-item, .service-card').forEach(el => {
+      el.addEventListener('mouseenter', () => { cursor.classList.add('hover'); follower.classList.add('hover'); });
+      el.addEventListener('mouseleave', () => { cursor.classList.remove('hover'); follower.classList.remove('hover'); });
+    });
+
+    /* =====================
+       STICKY NAV
+       ===================== */
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', () => {
+      navbar.classList.toggle('scrolled', window.scrollY > 50);
+    }, { passive: true });
+
+    /* =====================
+       HAMBURGER
+       ===================== */
+    function toggleMenu() {
+      const open = document.getElementById('mobileMenu').classList.toggle('open');
+      document.getElementById('hamburger').classList.toggle('open', open);
+      document.body.style.overflow = open ? 'hidden' : '';
+    }
+    function closeMenu() {
+      document.getElementById('mobileMenu').classList.remove('open');
+      document.getElementById('hamburger').classList.remove('open');
+      document.body.style.overflow = '';
+    }
+
+    /* =====================
+       SCROLL REVEAL
+       — single clean observer, no duplicates
+       ===================== */
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          revealObserver.unobserve(entry.target); // fire once only
+        }
+      });
+    }, { threshold: 0.12 });
+
+    document.querySelectorAll('.fade-in, .fade-in-left, .fade-in-right, .reveal-up')
+      .forEach(el => revealObserver.observe(el));
+
+    /* =====================
+       COUNTER ANIMATION
+       — uses requestAnimationFrame so no layout thrashing
+       ===================== */
+    let counted = false;
+    const statsSection = document.querySelector('.stats-section');
+
+    if (statsSection) {
+      new IntersectionObserver((entries, obs) => {
+        if (!entries[0].isIntersecting || counted) return;
+        counted = true;
+        obs.disconnect();
+
+        document.querySelectorAll('.counter').forEach(counter => {
+          const target   = parseInt(counter.getAttribute('data-target'));
+          const duration = 1400; // ms
+          const start    = performance.now();
+
+          function update(now) {
+            const elapsed  = now - start;
+            const progress = Math.min(elapsed / duration, 1);
+            // ease out quart
+            const eased = 1 - Math.pow(1 - progress, 4);
+            counter.textContent = Math.floor(eased * target);
+            if (progress < 1) requestAnimationFrame(update);
+            else counter.textContent = target;
+          }
+          requestAnimationFrame(update);
+        });
+      }, { threshold: 0.4 }).observe(statsSection);
+    }
+
+    /* =====================
+       BUILD SECTION REVEAL
+       ===================== */
+    const buildContent = document.querySelector('.build-content');
+    if (buildContent) {
+      new IntersectionObserver((entries, obs) => {
+        if (entries[0].isIntersecting) {
+          buildContent.classList.add('show');
+          obs.disconnect();
+        }
+      }, { threshold: 0.25 }).observe(buildContent);
+    }
+  </script>
+</body>
+</html>
