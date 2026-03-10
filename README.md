@@ -4,41 +4,44 @@
 
 A collection of my work across Graphic Design, Front-End Development, and C++ Programming — built since 2021.
 
+[![Portfolio Website](https://img.shields.io/badge/Portfolio_Website-0a0a0a?style=for-the-badge&logo=googlechrome&logoColor=white)](https://abdul-hanan13.github.io/Portfolio/)
+[![Design Portfolio](https://img.shields.io/badge/Design_Portfolio-F24E1E?style=for-the-badge&logo=figma&logoColor=white)](https://www.figma.com/design/3iV7LXFFGwZashZ2ZdIDtV/Portfolio)
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/abdul-hanan-5a1020256)
+
 ---
 
 ## 📁 Repository Structure
 
 ```
 Portfolio/
-├── Graphic-Designing/        # Logos, posters, brand identity, social media assets
+├── index.html                        # Portfolio website (live)
+├── Graphic-Designing/                # Logos, posters, brand identity, social media assets
 ├── Front-end Web Development/
-│   ├── Pakistan Website/     # Multi-page responsive site (live)
-│   └── Bike Website/         # Hangine — bike showcase landing page (live)
+│   ├── Pakistan Website/             # Multi-page responsive site (live)
+│   └── Bike Website/                 # Hangine — bike showcase landing page (live)
 └── Cpp-Projects/
-    ├── DSA LUDO PROJECT.cpp  # Human vs AI Ludo game
-    ├── Inventory System.cpp  # Honda Workshop billing system
+    ├── DSA LUDO PROJECT.cpp          # Human vs AI Ludo game
+    ├── Inventory System.cpp          # Honda Workshop billing system
     └── ...
 ```
 
 ---
 
+## 🌐 Portfolio Website
+
+Full portfolio with 3D hero, scroll animations, project filters, and live links.
+
+🔗 [Visit → abdul-hanan13.github.io/Portfolio/](https://abdul-hanan13.github.io/Portfolio/)
+
+---
+
 ## 🎨 Graphic Design
 
-Curated design work including:
-- Brand identity systems & logo design
-- Social media graphics (Instagram, LinkedIn)
-- Poster design & typography layouts
-- Figma web portfolio layouts for clients
+Curated design work including brand identity systems, logo design, social media graphics (Instagram & LinkedIn), poster design, typography layouts, and Figma web portfolio layouts for real clients.
 
 **Tools:** Adobe Illustrator · Adobe Photoshop · Figma · Canva
 
 🔗 [View Figma Portfolio](https://www.figma.com/design/3iV7LXFFGwZashZ2ZdIDtV/Portfolio)
-
----
-
-## 🌐 Portfolio Landing Page
-
-[![Visit Portfolio](https://img.shields.io/badge/Visit_Full_Portfolio-181717?style=for-the-badge&logo=github&logoColor=white)](https://Abdul-Hanan13.github.io/Portfolio/)
 
 ---
 
@@ -71,11 +74,6 @@ Console-based Ludo with one human vs. one AI opponent. Implements custom **Linke
 
 ---
 
-### 🌙 AI Dream Therapist *(2025)*
-Islamic dream symbol interpreter with admin CRUD, user/admin modes, dream history, and full input validation — pure arrays only, no STL vectors or structs.
-
----
-
 ### 🔧 Inventory & Billing System *(2025)*
 Honda Bike Workshop console system with Admin/User modes, item CRUD, cart management, billing, ratings, and robust input validation.
 
@@ -83,12 +81,20 @@ Honda Bike Workshop console system with Admin/User modes, item CRUD, cart manage
 
 ---
 
+### ♟️ Chess Game *(2024)*
+Two-player console chess with all 6 piece types, correct movement rules, path-clearing logic, check/checkmate detection, and turn-based gameplay on an 8×8 board.
+
+🔗 [View Code](https://github.com/Abdul-Hanan13/Portfolio/tree/main/Cpp-Projects)
+
+---
+
 ## 🙋 About Me
 
 - 🎓 CS Student @ University of Management and Technology (UMT), Lahore · GPA: 3.7
-- 💼 Ex Graphic Design Intern @ NimisTech (Remote)
+- 💼 Ex Graphic Design Intern @ NimisTech (Remote · Nov 2025 – Feb 2026)
 - 📍 Lahore, Pakistan
 - 📬 abdulhannan360x@gmail.com
 
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-0A66C2?style=flat-square&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/abdul-hanan-5a1020256)
 [![Figma](https://img.shields.io/badge/Design_Portfolio-F24E1E?style=flat-square&logo=figma&logoColor=white)](https://www.figma.com/design/3iV7LXFFGwZashZ2ZdIDtV/Portfolio)
+[![Website](https://img.shields.io/badge/Portfolio_Website-0a0a0a?style=flat-square&logo=googlechrome&logoColor=white)](https://abdul-hanan13.github.io/Portfolio/)
